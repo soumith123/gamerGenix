@@ -1,0 +1,12 @@
+a
+{
+    color: white;
+}
+
+.active.nav-link
+{
+    font-weight: bold;
+    font-size: 17px;
+    border-radius: 20px;
+    margin-right: 5px;
+}

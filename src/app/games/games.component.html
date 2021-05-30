@@ -1,0 +1,35 @@
+<input type="text" name="title" placeholder="Search by game name" class="form-control mt-4" 
+    [(ngModel)]= "searchTerm">
+
+<table class="table text-center mb-4">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Game Name</th>
+            <th>Game Picture</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        <tr *ngFor="let game of gamesObj | search:searchTerm | paginate: {itemsPerPage:10, currentPage:p}">
+            <td>{{game.id}}</td>
+            <td>{{game.title}}</td>
+            <td>
+                <img src={{game.thumbnail}} width="200px">
+            </td>
+            <td>
+                <button class="btn btn-primary mt-5" (click)="onSelectId(game.id)">Game Info...</button>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+
+<pagination-controls (pageChange)="p=$event" class="text-center"></pagination-controls>
+
+
+
+
+
+
+
