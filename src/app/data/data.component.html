@@ -1,5 +1,9 @@
 <div class="container mt-3 mb-4">
-    
+
+    <input type="text" name="title" placeholder="Search game by its name" class="form-control mt-4 mb-3"
+    [(ngModel)]= "searchTerm">
+
+    <div *ngFor="let game of gamesObj | search:searchTerm | paginate: {itemsPerPage:5, currentPage:p}">
         <div class="container bg-dark border border-white border-bottom-0">
 
             <!-- card displays pic, play game and game info  -->
@@ -108,6 +112,9 @@
                     
 
         </div>
+
+        
+    </div>
 </div>
 
 

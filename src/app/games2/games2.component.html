@@ -1,4 +1,4 @@
-<div class="container w-75">
+<div class="container"> 
 
     <input type="text" name="title" placeholder="Search game by its name" class="form-control mt-4 mb-3"
     [(ngModel)]= "searchTerm">
@@ -9,28 +9,19 @@
                 <div class="card text-center mt-3 border border-dark mb-3">
                     <img src={{game.thumbnail}} width="100%">
                     <div class="card-body text-white bg-dark">
-                        <div class="card-title mt-3" id="gameTitle"><h4>{{game.title}}</h4></div>
+                        <div class="card-title" id="gameTitle"><h4>{{game.title}}</h4></div>
                         <hr class="text-white">
-                        <button class="btn btn-primary mt-3 mb-3" (click)="onSelectId(game.id)"><i class="fas fa-info-circle me-2"></i>Game Info</button>
+                        <div class="card-text">{{game.short_description}}</div>
+                        <a href={{game.game_url}} class="btn btn-danger w-50 mb-2 mt-3"><i class="fas fa-play-circle me-2"></i>Play Game</a><br>
+                        <a href={{game.freetogame_profile_url}} class="btn btn-warning text-white w-50 mb-3"><i class="fas fa-puzzle-piece me-2"></i>About Game</a>
                     </div>
                 </div>
             </div>
         </div>  
     </div>
-
-
-
-    <pagination-controls (pageChange)="p=$event" class="text-center"></pagination-controls>
 </div>
 
 
+<pagination-controls (pageChange)="p=$event" class="text-center"></pagination-controls>
 
-
-
-
-
-
-
-
-
-
+    

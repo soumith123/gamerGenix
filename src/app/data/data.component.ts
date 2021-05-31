@@ -4,14 +4,13 @@ import { GamesService } from '../games.service';
 import { Games } from '../models/game.model';
 
 @Component({
-  selector: 'app-games',
-  templateUrl: './games.component.html',
-  styleUrls: ['./games.component.css']
+  selector: 'app-data',
+  templateUrl: './data.component.html',
+  styleUrls: ['./data.component.css']
 })
-export class GamesComponent implements OnInit {
+export class DataComponent implements OnInit {
 
   constructor(private gameObj:GamesService, private router:Router) { }
-  
 
   searchTerm:string;
 
@@ -32,9 +31,4 @@ export class GamesComponent implements OnInit {
     )
   }
 
-
-  onSelectId(id)
-  {
-    this.router.navigateByUrl('games/'+id)
-  }
 }

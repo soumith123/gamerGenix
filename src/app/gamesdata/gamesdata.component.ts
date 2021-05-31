@@ -9,8 +9,11 @@ import { Games } from '../models/game.model';
   styleUrls: ['./gamesdata.component.css']
 })
 export class GamesdataComponent implements OnInit {
+  
 
-  gameObj:any;
+  game:Games;
+  searchTerm:string;
+  p=1
   
 
   //injecting gamesdata service object
@@ -27,17 +30,14 @@ export class GamesdataComponent implements OnInit {
       obj=>
       {
         //assigning games
-        this.gameObj=obj;
-        console.log(this.gameObj)
+        this.game=obj;
+        console.log(this.game)
       },
       err=>
       {
         console.log("error in getting details of game is:", err);
       }
     )
-  }
-
-
- 
+  } 
 
 }

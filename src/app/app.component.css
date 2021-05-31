@@ -10,3 +10,11 @@ a
     border-radius: 20px;
     margin-right: 5px;
 }
+
+.navbar-brand
+{
+    font-family: 'Pattaya', sans-serif;
+    font-family: 'Limelight', cursive;
+    color:darkorange
+}
+

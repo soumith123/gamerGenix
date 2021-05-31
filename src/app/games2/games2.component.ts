@@ -4,11 +4,11 @@ import { GamesService } from '../games.service';
 import { Games } from '../models/game.model';
 
 @Component({
-  selector: 'app-games',
-  templateUrl: './games.component.html',
-  styleUrls: ['./games.component.css']
+  selector: 'app-games2',
+  templateUrl: './games2.component.html',
+  styleUrls: ['./games2.component.css']
 })
-export class GamesComponent implements OnInit {
+export class Games2Component implements OnInit {
 
   constructor(private gameObj:GamesService, private router:Router) { }
   
@@ -32,9 +32,4 @@ export class GamesComponent implements OnInit {
     )
   }
 
-
-  onSelectId(id)
-  {
-    this.router.navigateByUrl('games/'+id)
-  }
 }

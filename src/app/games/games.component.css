@@ -1,0 +1,22 @@
+table
+{
+    background-image:linear-gradient(to right,rgb(120, 99, 99),rgb(138, 126, 126),rgb(150, 142, 142));
+    color: white
+}
+#title
+{
+    font-weight: bold;
+}
+input
+{
+    border-radius: 20px;
+}
+th
+{
+    color:rgb(245, 76, 166);
+}
+#gameTitle
+{
+    color: tomato;
+    font-family: 'Merriweather', serif;
+}

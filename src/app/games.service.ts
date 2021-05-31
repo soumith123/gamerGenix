@@ -22,16 +22,23 @@ export class GamesService {
 
         "x-rapidapi-key": "9f6970e90cmsh75445f0710e28acp1a6671jsnc6184bbdcfb9",
         "x-rapidapi-host": "free-to-play-games-database.p.rapidapi.com",
-      },   
+      }  
 
     })
   }
 
 
 
-  getGameById(id):Observable<Games[]>
+  getGameById(id):Observable<Games>
   {
-    return this.hc.get<Games[]>("https://free-to-play-games-database.p.rapidapi.com/api/games/"+id,
+
+    /*const params=
+    {
+      "id":id.toString(),
+    }*/
+
+    let ID=id.toString()
+    return this.hc.get<Games>("https://free-to-play-games-database.p.rapidapi.com/api/game?id="+ID,
     {
 
       "headers":
@@ -40,9 +47,9 @@ export class GamesService {
         "x-rapidapi-key": "9f6970e90cmsh75445f0710e28acp1a6671jsnc6184bbdcfb9",
 	      "x-rapidapi-host": "free-to-play-games-database.p.rapidapi.com",
       },
+      // params:params
 
     }) 
   }
-
 
 }

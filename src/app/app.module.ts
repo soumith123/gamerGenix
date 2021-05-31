@@ -10,7 +10,9 @@ import { FooterComponent } from './footer/footer.component';
 import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
 import { SharedModule } from './shared/shared.module';
 import { SearchPipe } from './search.pipe';
-import {FormsModule} from '@angular/forms'
+import {FormsModule} from '@angular/forms';
+import { DataComponent } from './data/data.component';
+import { Games2Component } from './games2/games2.component'
 
 @NgModule({
   declarations: [
@@ -20,6 +22,8 @@ import {FormsModule} from '@angular/forms'
     HomeComponent,
     FooterComponent,
     PagenotfoundComponent,
+    DataComponent,
+    Games2Component,
   ],
   imports: [
     BrowserModule,

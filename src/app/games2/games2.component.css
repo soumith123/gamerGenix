@@ -1,0 +1,12 @@
+input
+{
+    border-radius: 20px;
+}
+#gameTitle
+{
+    color:mediumvioletred;
+    font-weight: bold;
+    font-family: 'Pattaya', sans-serif;
+    font-size: 35px;
+    letter-spacing:2px;
+}
