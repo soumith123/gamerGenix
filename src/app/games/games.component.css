@@ -20,3 +20,7 @@ th
     color: tomato;
     font-family: 'Merriweather', serif;
 }
+.card:hover
+{
+    transform: scale(1.05);
+}

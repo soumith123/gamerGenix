@@ -32,11 +32,6 @@ export class GamesService {
   getGameById(id):Observable<Games>
   {
 
-    /*const params=
-    {
-      "id":id.toString(),
-    }*/
-
     let ID=id.toString()
     return this.hc.get<Games>("https://free-to-play-games-database.p.rapidapi.com/api/game?id="+ID,
     {
@@ -47,7 +42,6 @@ export class GamesService {
         "x-rapidapi-key": "9f6970e90cmsh75445f0710e28acp1a6671jsnc6184bbdcfb9",
 	      "x-rapidapi-host": "free-to-play-games-database.p.rapidapi.com",
       },
-      // params:params
 
     }) 
   }

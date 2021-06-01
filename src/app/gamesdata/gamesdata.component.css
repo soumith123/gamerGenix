@@ -23,5 +23,33 @@
 input
 {
     border-radius: 20px;
-
 }
+#palyButton
+{
+    box-shadow: 2px 2px 3px 3px rgb(240, 81, 81);
+}
+#aboutButton
+{
+    box-shadow: 2px 2px 2px 2px rgb(175, 175, 22);
+}
+
+@media screen and (min-width:150px) and (max-width:530px)
+{
+    #platform,#genre,#publisher,#developer,#releaseDate,#id1,#id2,#id3,#id4,#id5
+    {
+        text-align: center;
+
+    }
+    #platform,#genre,#publisher,#developer,#releaseDate
+    {
+        margin-top: 0px;
+    } 
+
+    #card4
+    {
+        height: 205px;
+        
+    }
+    
+}
+
