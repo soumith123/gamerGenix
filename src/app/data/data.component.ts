@@ -10,25 +10,11 @@ import { Games } from '../models/game.model';
 })
 export class DataComponent implements OnInit {
 
-  constructor(private gameObj:GamesService, private router:Router) { }
+  
 
-  searchTerm:string;
-
-  p=1;
-
-  gamesObj:Games[]=[];
+  constructor() {}
+  
 
   ngOnInit(): void {
-    this.gameObj.getGamesData().subscribe(
-      gamesData=>
-      {
-        this.gamesObj=gamesData;
-      },
-      err=>
-      {
-        console.log("error is", err)
-      }
-    )
   }
-
 }

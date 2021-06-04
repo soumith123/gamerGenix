@@ -6,7 +6,7 @@
     <div class="row row-cols-1 row-cols-sm-1 row-cols-md-2 row-cols-lg-3">
         <div *ngFor="let game of gamesObj | search:searchTerm | paginate: {itemsPerPage:9, currentPage:p}">       
             <div class="col" >
-                <div class="card text-center mt-3 border border-dark mb-3">
+                <div class="card text-center mt-3 border border-dark mb-3 animate__animated animate__flipInY">
                     <img src={{game.thumbnail}} width="100%">
                     <div class="card-body text-white bg-dark">
                         <div class="card-title mt-3" id="gameTitle"><h4>{{game.title}}</h4></div>

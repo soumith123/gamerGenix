@@ -1,0 +1,79 @@
+li
+{
+    font-weight: bold;
+    font-family: 'Padauk', sans-serif;
+    letter-spacing: 1px;
+    margin-bottom: 2px;
+}
+h4
+{
+    font-family: 'Merriweather', serif;
+}
+h5
+{
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: bold;
+}
+#head1,#head2
+{
+    font-family: 'Prata', serif;
+    font-family: 'Rye', cursive;
+    font-weight: bold;
+    letter-spacing: 2px;
+    color: rgb(255,94,94); 
+    
+}
+.first
+{
+    font-size: 23px;
+    color: rgb(253, 7, 56);
+    font-family: 'Merienda', cursive; 
+}
+h3
+{
+    font-style: italic;
+    color:lightcoral
+}
+
+.maindiv
+{
+    background-image:url("/assets/background2.png");
+    background-size: 100% 100%;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+} 
+#basketball
+{
+    color: orange;
+}
+#foot
+{
+    color: brown;
+}
+.card
+{
+    border-radius: 15px;
+}
+.card:hover
+{
+    transform: scale(1.05);
+}
+#trendingHead
+{
+    color:rgb(235, 121, 15);
+    font-family: 'Noto Serif', serif;
+}
+#collections
+{
+    color: rgb(199,6,127);
+}
+@media screen and (min-width:150px) and (max-width:530px) 
+{
+    #collections
+    {
+        
+        
+    }
+
+    
+}

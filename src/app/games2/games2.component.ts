@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { GamesService } from '../games.service';
 import { Games } from '../models/game.model';
 
@@ -10,26 +10,27 @@ import { Games } from '../models/game.model';
 })
 export class Games2Component implements OnInit {
 
-  constructor(private gameObj:GamesService, private router:Router) { }
-  
+  constructor(private ar:ActivatedRoute, private fs:GamesService) { }
 
-  searchTerm:string;
+  game:Games[];
 
-  p=1;
+  ngOnInit(): void 
+  {
 
-  gamesObj:Games[]=[];
-
-  ngOnInit(): void {
-    this.gameObj.getGamesData().subscribe(
-      gamesData=>
+    //getting id from url
+    let category=this.ar.snapshot.params.category;
+    
+    //get data of game with current id
+    this.fs.getShootingGames().subscribe(
+      obj=>
       {
-        this.gamesObj=gamesData;
+        //assigning games
+        this.game=obj;
       },
       err=>
       {
-        console.log("error is", err)
+        console.log("error in getting details of game is:", err);
       }
     )
-  }
-
+  } 
 }

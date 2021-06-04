@@ -14,7 +14,7 @@ export class GamesService {
 
   getGamesData():Observable<Games[]>
   {
-    return this.hc.get<Games[]>("https://free-to-play-games-database.p.rapidapi.com/api/games",
+    return this.hc.get<Games[]>("https://free-to-play-games-database.p.rapidapi.com/api/games?sort-by=alphabetical",
     {
 
       "headers":
@@ -46,4 +46,15 @@ export class GamesService {
     }) 
   }
 
+  getShootingGames():Observable<Games[]>
+  {
+    return this.hc.get<Games[]>("https://free-to-play-games-database.p.rapidapi.com/api/games?category=shooter",
+    {
+      "headers":
+      {
+        "x-rapidapi-key": "9f6970e90cmsh75445f0710e28acp1a6671jsnc6184bbdcfb9",
+	      "x-rapidapi-host": "free-to-play-games-database.p.rapidapi.com",
+      }
+    })
+  }
 }

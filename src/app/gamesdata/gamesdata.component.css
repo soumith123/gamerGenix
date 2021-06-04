@@ -33,7 +33,7 @@ input
     box-shadow: 2px 2px 2px 2px rgb(175, 175, 22);
 }
 
-@media screen and (min-width:150px) and (max-width:530px)
+@media screen and (min-width:150px) and (max-width:600px)
 {
     #platform,#genre,#publisher,#developer,#releaseDate,#id1,#id2,#id3,#id4,#id5
     {
