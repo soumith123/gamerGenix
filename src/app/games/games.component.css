@@ -1,18 +1,19 @@
-
-input
+a
 {
-    border-radius: 20px;
+    color: white;
+    font-family: 'Nunito', sans-serif;
 }
-#gameTitle
+a:hover
 {
     color: tomato;
-    font-family: 'Merriweather', serif;
+    background-color: white;
+    border-radius: 20px;
 }
-.card:hover
+
+/* active nav item styles*/
+.active.nav-link
 {
-    transform: scale(1.05);
-}
-.card
-{
-    
+    color: white;
+    background-color: tomato;
+    border-radius: 20px;
 }

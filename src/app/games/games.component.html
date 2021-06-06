@@ -1,4 +1,83 @@
-<div class="container w-75">
+<ul class="nav nav-pills justify-content-evenly mt-3">
+    
+    <li class="nav-item">
+        <a class="nav-link" routerLink="action" routerLinkActive="active">
+            <i class="fab fa-xbox text-danger"></i>   Action
+        </a>
+    </li>
+
+    <li class="nav-item">
+        <a class="nav-link" routerLink="card" routerLinkActive="active">
+            <i class="fas fa-crown text-warning"></i>  Card
+        </a>
+    </li>
+
+    <li class="nav-item">
+        <a class="nav-link" routerLink="fantasy" routerLinkActive="active">
+            <i class="fab fa-fantasy-flight-games text-warning"></i>  Fantasy
+        </a>
+    </li>
+
+    <li class="nav-item">
+        <a class="nav-link" routerLink="fighting" routerLinkActive="active">
+            <i class="fas fa-fighter-jet text-primary"></i>  Fighting
+        </a>
+    </li>
+
+    <li class="nav-item">
+        <a class="nav-link" routerLink="mmorpg" routerLinkActive="active">
+            <i class="fas fa-gem text-info"></i>  MMORPG
+        </a>
+    </li>
+    
+    <li class="nav-item">
+        <a class="nav-link" routerLink="mmo" routerLinkActive="active">
+            <i class="fas fa-hat-wizard text-info"></i>  MMO
+        </a>
+    </li>
+    
+    <li class="nav-item">
+        <a class="nav-link" routerLink="moba" routerLinkActive="active">
+            <i class="fas fa-broom text-warning"></i>  MOBA
+        </a>
+    </li>
+    
+    <li class="nav-item">
+        <a class="nav-link" routerLink="shooter" routerLinkActive="active">
+            <i class="fas fa-khanda text-success"></i>  Shooter
+        </a>
+    </li>
+
+    <li class="nav-item">
+        <a class="nav-link" routerLink="social" routerLinkActive="active">
+            <i class="fas fa-poll text-primary"></i>  Social
+        </a>
+    </li>
+
+    <li class="nav-item">
+        <a class="nav-link" routerLink="sports" routerLinkActive="active">
+            <i class="fas fa-bowling-ball text-danger"></i>  Sports
+        </a>
+    </li>
+    
+    <li class="nav-item">
+        <a class="nav-link" routerLink="strategy" routerLinkActive="active">
+            <i class="fas fa-running text-info"></i>  Strategy
+        </a>
+    </li>
+    
+    <li class="nav-item">
+        <a class="nav-link" routerLink="racing" routerLinkActive="active">
+            <i class="fas fa-biking text-warning"></i>  Racing
+        </a>
+    </li>
+
+
+</ul>
+
+<router-outlet></router-outlet>
+
+<!-- <div class="container w-75">
 
     <input type="text" name="title" placeholder="Search game by its name" class="form-control mt-4 mb-3"
     [(ngModel)]= "searchTerm">
@@ -21,7 +100,7 @@
 
 
     <pagination-controls (pageChange)="p=$event" class="text-center"></pagination-controls>
-</div>
+</div> -->
 
 
 

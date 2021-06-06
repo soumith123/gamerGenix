@@ -1,0 +1,30 @@
+.maindiv
+{
+    background-image: linear-gradient(to right,rgb(30, 181, 201),pink);
+}
+.header
+{
+    font-family: 'Source Serif Pro', serif;
+    color: rgb(255,0,116);
+}
+#location
+{
+    font-size: 20px;
+}
+input
+{
+    border-radius: 15px;
+}
+textarea
+{
+    border-radius: 15px;
+}
+label
+{
+    font-size: 16px;
+    font-weight:500;
+}
+@media screen and (min-width:580px) and (max-width:1000px)
+{
+    
+}

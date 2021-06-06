@@ -1,0 +1,14 @@
+
+input
+{
+    border-radius: 20px;
+}
+#gameTitle
+{
+    color: tomato;
+    font-family: 'Merriweather', serif;
+}
+.card:hover
+{
+    transform: scale(1.05);
+}
