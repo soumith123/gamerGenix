@@ -12,7 +12,7 @@ export class MmorpgdataComponent implements OnInit {
 
   mmorpg:Games;
 
-  //injecting gamesdata service object
+  //injecting gamesService object
   constructor(private ar:ActivatedRoute, private fs:GamesService) { }
 
   ngOnInit(): void 
@@ -21,16 +21,16 @@ export class MmorpgdataComponent implements OnInit {
     //getting id from url
     let id=this.ar.snapshot.params.id;
     
-    //get data of game with current id
+    //get data of mmorpg game with current id
     this.fs.getMMORPGGamesById(id).subscribe(
       obj=>
       {
-        //assigning games
+        //assigning mmorpg game
         this.mmorpg=obj;
       },
       err=>
       {
-        console.log("error in getting details of mmorpg is:", err);
+        console.log("error in getting details of mmorpg games is:", err);
       }
     )
   } 

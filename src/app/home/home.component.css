@@ -9,6 +9,11 @@ h4
 {
     font-family: 'Merriweather', serif;
 }
+marquee
+{
+    color: rgb(255,0,116);
+    font-size: 20px;
+}
 h5
 {
     font-family: 'Cormorant Garamond', serif;

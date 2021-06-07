@@ -12,7 +12,7 @@ export class FightingdataComponent implements OnInit {
 
   fighting:Games;
 
-  //injecting gamesdata service object
+  //injecting gamesService object
   constructor(private ar:ActivatedRoute, private fs:GamesService) { }
 
   ngOnInit(): void 
@@ -21,17 +21,16 @@ export class FightingdataComponent implements OnInit {
     //getting id from url
     let id=this.ar.snapshot.params.id;
     
-    //get data of game with current id
+    //get data of Fighting game with current id
     this.fs.getFightingGamesById(id).subscribe(
       obj=>
       {
-        //assigning games
+        //assigning fighting game
         this.fighting=obj;
-        console.log(this.fighting)
       },
       err=>
       {
-        console.log("error in getting details of fighting is:", err);
+        console.log("error in getting details of fighting games is:", err);
       }
     )
   } 

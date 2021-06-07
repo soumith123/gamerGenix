@@ -12,12 +12,18 @@ export class MmorpgComponent implements OnInit {
 
   constructor(private gs:GamesService, private router:Router) { }
 
+  // storing MMORPG games
   mmorpg:Games[]=[];
+
+  // for pagination
   p=1;
+
+  // to search game
   searchTerm:string;
 
   ngOnInit(): void 
   {
+    // getting shooting games from service
     this.gs.getMMORPGGames().subscribe(
       mmorpg=>
       {
@@ -30,6 +36,7 @@ export class MmorpgComponent implements OnInit {
     )
   }
 
+  // after clicking game info button it navigates to game details page
   onSelectId(id)
   {
     this.router.navigateByUrl('games/'+id)

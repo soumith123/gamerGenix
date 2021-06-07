@@ -12,12 +12,18 @@ export class SocialComponent implements OnInit {
 
   constructor(private gs:GamesService, private router:Router) { }
 
+  // storing social games
   social:Games[]=[];
+
+  // for pagination
   p=1;
+
+  // to search game
   searchTerm:string;
 
   ngOnInit(): void 
   {
+    // getting social games from service
     this.gs.getSocialgGames().subscribe(
       social=>
       {
@@ -25,11 +31,12 @@ export class SocialComponent implements OnInit {
       },
       err=>
       {
-        console.log("error in getting action games are", err)
+        console.log("error in getting social games are", err)
       }
     )
   }
 
+  // after clicking game info button it navigates to game details page
   onSelectId(id)
   {
     this.router.navigateByUrl('games/'+id)

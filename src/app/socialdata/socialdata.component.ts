@@ -13,7 +13,7 @@ export class SocialdataComponent implements OnInit {
   social:Games;
   
 
-  //injecting gamesdata service object
+  //injecting gamesService object
   constructor(private ar:ActivatedRoute, private fs:GamesService) { }
 
   ngOnInit(): void 
@@ -22,16 +22,16 @@ export class SocialdataComponent implements OnInit {
     //getting id from url
     let id=this.ar.snapshot.params.id;
     
-    //get data of game with current id
+    //get data of social game with current id
     this.fs.getSocialGamesById(id).subscribe(
       obj=>
       {
-        //assigning games
+        //assigning social games
         this.social=obj;
       },
       err=>
       {
-        console.log("error in getting details of social is:", err);
+        console.log("error in getting details of social game is:", err);
       }
     )
   } 

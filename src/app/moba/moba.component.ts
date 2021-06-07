@@ -12,12 +12,18 @@ export class MOBAComponent implements OnInit {
 
   constructor(private gs:GamesService, private router:Router) { }
 
+  // storing MOBA games
   moba:Games[]=[];
+
+  // for pagination
   p=1;
+
+  // to search game
   searchTerm:string;
 
   ngOnInit(): void 
   {
+    // getting MOBA games from service
     this.gs.getMOBAGames().subscribe(
       moba=>
       {
@@ -25,11 +31,12 @@ export class MOBAComponent implements OnInit {
       },
       err=>
       {
-        console.log("error in getting action games are", err)
+        console.log("error in getting MOBA games are", err)
       }
     )
   }
 
+  // after clicking game info button it navigates to game details page
   onSelectId(id)
   {
     this.router.navigateByUrl('games/'+id)

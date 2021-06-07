@@ -12,12 +12,18 @@ export class ActionComponent implements OnInit {
 
   constructor(private gs:GamesService, private router:Router) { }
 
+  // storing action games
   action:Games[]=[];
+
+  // for pagination
   p=1;
+
+  // to search game
   searchTerm:string;
 
   ngOnInit(): void 
   {
+    // getting action games from service
     this.gs.getActionGames().subscribe(
       action=>
       {
@@ -30,6 +36,7 @@ export class ActionComponent implements OnInit {
     )
   }
 
+  // after clicking game info button it navigates to game details page
   onSelectId(id)
   {
     this.router.navigateByUrl('games/'+id)

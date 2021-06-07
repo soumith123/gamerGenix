@@ -9,10 +9,12 @@ import { FightingComponent } from './fighting/fighting.component';
 import { GamesComponent } from './games/games.component';
 import { GamesdataComponent } from './gamesdata/gamesdata.component';
 import { HomeComponent } from './home/home.component';
+import { LoginComponent } from './login/login.component';
 import { MmoComponent } from './mmo/mmo.component';
 import { MmorpgComponent } from './mmorpg/mmorpg.component';
 import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
 import { RacingComponent } from './racing/racing.component';
+import { RegisterComponent } from './register/register.component';
 import { ShooterComponent } from './shooter/shooter.component';
 import { SocialComponent } from './social/social.component';
 import { SportsComponent } from './sports/sports.component';
@@ -40,7 +42,8 @@ const routes: Routes = [
   {path:'home', component:HomeComponent},
   {path:'data', component:DataComponent},
   {path:'contactus', component:ContactusComponent},
-
+  {path:'login', component:LoginComponent},
+  {path:'register', component:RegisterComponent},
   {path:'', redirectTo:'/home', pathMatch:'full'},
   {path:'**', component:PagenotfoundComponent},
 ];

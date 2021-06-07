@@ -37,7 +37,9 @@ import { CarddataComponent } from './carddata/carddata.component';
 import { StrategydataComponent } from './strategydata/strategydata.component';
 import { FantasydataComponent } from './fantasydata/fantasydata.component';
 import { MmodataComponent } from './mmodata/mmodata.component';
-import { MmorpgdataComponent } from './mmorpgdata/mmorpgdata.component'
+import { MmorpgdataComponent } from './mmorpgdata/mmorpgdata.component';
+import { LoginComponent } from './login/login.component';
+import { RegisterComponent } from './register/register.component'
 
 @NgModule({
   declarations: [
@@ -74,6 +76,8 @@ import { MmorpgdataComponent } from './mmorpgdata/mmorpgdata.component'
     FantasydataComponent,
     MmodataComponent,
     MmorpgdataComponent,
+    LoginComponent,
+    RegisterComponent,
   ],
   imports: [
     BrowserModule,

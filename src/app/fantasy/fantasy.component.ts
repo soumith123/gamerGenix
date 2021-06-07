@@ -12,12 +12,18 @@ export class FantasyComponent implements OnInit {
 
   constructor(private gs:GamesService, private router:Router) { }
 
+  // storing fantasy games
   fantasy:Games[]=[];
+
+  // for pagination
   p=1;
+
+  // to search game
   searchTerm:string;
 
   ngOnInit(): void 
   {
+    // getting fantasy games from service
     this.gs.getFantasyGames().subscribe(
       fantasy=>
       {
@@ -25,11 +31,12 @@ export class FantasyComponent implements OnInit {
       },
       err=>
       {
-        console.log("error in getting action games are", err)
+        console.log("error in getting fantasy games are", err)
       }
     )
   }
 
+  // after clicking game info button it navigates to game details page
   onSelectId(id)
   {
     this.router.navigateByUrl('games/'+id)

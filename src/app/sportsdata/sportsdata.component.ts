@@ -12,6 +12,7 @@ export class SportsdataComponent implements OnInit {
 
   sports:Games;
 
+  //injecting gamesService object
   constructor(private ar:ActivatedRoute, private fs:GamesService) { }
 
   ngOnInit(): void 
@@ -20,16 +21,16 @@ export class SportsdataComponent implements OnInit {
     //getting id from url
     let id=this.ar.snapshot.params.id;
     
-    //get data of game with current id
+    //get data of sports game with current id
     this.fs.getSportsGamesById(id).subscribe(
       obj=>
       {
-        //assigning games
+        //assigning sports game
         this.sports=obj;
       },
       err=>
       {
-        console.log("error in getting details of sports is:", err);
+        console.log("error in getting details of sports game is:", err);
       }
     )
   } 

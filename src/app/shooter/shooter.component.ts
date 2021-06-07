@@ -12,14 +12,18 @@ export class ShooterComponent implements OnInit {
 
   constructor( private gs:GamesService, private router:Router) { }
 
+  // for pagination
   p=1;
 
+  // to search game
   searchTerm:string;
 
+  // storing shooting games
   shooter:Games[]=[];
 
   ngOnInit(): void 
   {
+    // getting shooting games from service
     this.gs.getShootingGames().subscribe(
       shooter=>
       {
@@ -27,11 +31,12 @@ export class ShooterComponent implements OnInit {
       },
       err=>
       {
-        console.log("error in getting action games are", err)
+        console.log("error in getting shooting games are", err)
       }
     )
   }
 
+  // after clicking game info button it navigates to game details page
   onSelectId(id)
   {
     this.router.navigateByUrl('games/'+id)
