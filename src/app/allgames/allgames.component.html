@@ -1,22 +1,22 @@
 <div class="container w-100">
 
-     <!-- Search field -->
+    <!-- Search field -->
     <input type="text" name="title" placeholder="Search game by its name" class="form-control mt-4"
     [(ngModel)]= "searchTerm">
 
     <div class="row row-cols-1 row-cols-sm-2 row-cols-md-2 row-cols-lg-3 row-cols-xl-3 mt-4">
-
+        
         <!--pipes for pagination and search -->
-        <div class="col" *ngFor='let fantasyObj of fantasy | search:searchTerm | paginate: {itemsPerPage:9, currentPage:p}'>
+        <div class="col" *ngFor='let allGamesObj of all | search:searchTerm | paginate: {itemsPerPage:9, currentPage:p}'>
             <div class="col" >
                 <div class="card text-center mt-3 mb-3 animate__animated animate__flipInY">
-                    <img src={{fantasyObj.thumbnail}} width="100%">
+                    <img src={{allGamesObj.thumbnail}} width="100%">
                     <div class="card-body text-white bg-dark">
-                        <div class="card-title mt-3" id="gameTitle"><h4>{{fantasyObj.title}}</h4></div>
+                        <div class="card-title mt-3" id="gameTitle"><h4>{{allGamesObj.title}}</h4></div>
                         <hr class="text-white">
 
-                         <!-- button for click event -->
-                        <button class="btn btn-primary mt-3 mb-3" (click)="onSelectId(fantasyObj.id)"><i class="fas fa-info-circle me-2"></i>Game Info</button>
+                        <!-- button for click event -->
+                        <button class="btn btn-primary mt-3 mb-3" (click)="onSelectId(allGamesObj.id)"><i class="fas fa-info-circle me-2"></i>Game Info</button>
                     </div>
                 </div>
             </div>

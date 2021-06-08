@@ -39,7 +39,9 @@ import { FantasydataComponent } from './fantasydata/fantasydata.component';
 import { MmodataComponent } from './mmodata/mmodata.component';
 import { MmorpgdataComponent } from './mmorpgdata/mmorpgdata.component';
 import { LoginComponent } from './login/login.component';
-import { RegisterComponent } from './register/register.component'
+import { RegisterComponent } from './register/register.component';
+import { AllgamesComponent } from './allgames/allgames.component';
+import { AllgamesdataComponent } from './allgamesdata/allgamesdata.component'
 
 @NgModule({
   declarations: [
@@ -78,6 +80,8 @@ import { RegisterComponent } from './register/register.component'
     MmorpgdataComponent,
     LoginComponent,
     RegisterComponent,
+    AllgamesComponent,
+    AllgamesdataComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { ActionComponent } from './action/action.component';
+import { AllgamesComponent } from './allgames/allgames.component';
 import { CardComponent } from './card/card.component';
 import { ContactusComponent } from './contactus/contactus.component';
 import { DataComponent } from './data/data.component';
@@ -35,6 +36,7 @@ const routes: Routes = [
     {path:'sports', component:SportsComponent},
     {path:'strategy', component:StrategyComponent},
     {path:'racing', component:RacingComponent},
+    {path:'allGames', component:AllgamesComponent},
     {path:'', redirectTo:'action', pathMatch:'full'} 
 
   ]},
