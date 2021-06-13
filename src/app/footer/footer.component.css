@@ -3,9 +3,17 @@ footer
 {
     font-style: italic;
     background-color: white;
+    /* position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    right: 0px;
+    margin-bottom: 0px; */
 }
 
 #gamer
 {
     color: rgb(194, 46, 20);
 }
+
+  

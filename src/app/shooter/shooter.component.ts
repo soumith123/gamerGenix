@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Subscription } from 'rxjs';
 import { GamesService } from '../games.service';
 import { Games } from '../models/game.model';
 
@@ -21,10 +22,12 @@ export class ShooterComponent implements OnInit {
   // storing shooting games
   shooter:Games[]=[];
 
+  mySubscription : Subscription;
+
   ngOnInit(): void 
   {
     // getting shooting games from service
-    this.gs.getShootingGames().subscribe(
+    this.mySubscription=this.gs.getShootingGames().subscribe(
       shooter=>
       {
         this.shooter=shooter;
@@ -35,10 +38,16 @@ export class ShooterComponent implements OnInit {
       }
     )
   }
+  
 
   // after clicking game info button it navigates to game details page
   onSelectId(id)
   {
     this.router.navigateByUrl('games/'+id)
+  }
+
+  ngOnDestroy()
+  {
+    this.mySubscription.unsubscribe();
   }
 }

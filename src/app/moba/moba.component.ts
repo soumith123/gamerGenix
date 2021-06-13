@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Subscription } from 'rxjs';
 import { GamesService } from '../games.service';
 import { Games } from '../models/game.model';
 
@@ -21,10 +22,12 @@ export class MOBAComponent implements OnInit {
   // to search game
   searchTerm:string;
 
+  mySubscription : Subscription;
+
   ngOnInit(): void 
   {
     // getting MOBA games from service
-    this.gs.getMOBAGames().subscribe(
+    this.mySubscription=this.gs.getMOBAGames().subscribe(
       moba=>
       {
         this.moba=moba;
@@ -42,4 +45,8 @@ export class MOBAComponent implements OnInit {
     this.router.navigateByUrl('games/'+id)
   }
 
+  ngOnDestroy()
+  {
+    this.mySubscription.unsubscribe();
+  }
 }

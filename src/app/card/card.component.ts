@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Subscription } from 'rxjs';
 import { GamesService } from '../games.service';
 import { Games } from '../models/game.model';
 
@@ -21,10 +22,12 @@ export class CardComponent implements OnInit {
   // to search game
   searchTerm:string;
 
+  mySubscription : Subscription;
+
   ngOnInit(): void 
   {
     // getting card games from service
-    this.gs.getCardGames().subscribe(
+    this.mySubscription=this.gs.getCardGames().subscribe(
       card=>
       {
         this.card=card;
@@ -42,4 +45,8 @@ export class CardComponent implements OnInit {
     this.router.navigateByUrl('games/'+id)
   }
 
+  ngOnDestroy()
+  {
+    this.mySubscription.unsubscribe();
+  }
 }

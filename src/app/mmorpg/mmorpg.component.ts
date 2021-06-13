@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Subscription } from 'rxjs';
 import { GamesService } from '../games.service';
 import { Games } from '../models/game.model';
 
@@ -21,10 +22,12 @@ export class MmorpgComponent implements OnInit {
   // to search game
   searchTerm:string;
 
+  mySubscription : Subscription;
+
   ngOnInit(): void 
   {
     // getting shooting games from service
-    this.gs.getMMORPGGames().subscribe(
+    this.mySubscription=this.gs.getMMORPGGames().subscribe(
       mmorpg=>
       {
         this.mmorpg=mmorpg;
@@ -42,5 +45,8 @@ export class MmorpgComponent implements OnInit {
     this.router.navigateByUrl('games/'+id)
   }
 
-
+  ngOnDestroy()
+  {
+    this.mySubscription.unsubscribe();
+  }
 }

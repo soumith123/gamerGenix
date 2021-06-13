@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Subscription } from 'rxjs';
 import { GamesService } from '../games.service';
 import { Games } from '../models/game.model';
 
@@ -21,10 +22,12 @@ export class RacingComponent implements OnInit {
   // to search game
   searchTerm:string;
 
+  mySubscription : Subscription;
+
   ngOnInit(): void 
   {
     // getting racing games from service
-    this.gs.getRacingGames().subscribe(
+    this.mySubscription=this.gs.getRacingGames().subscribe(
       racing=>
       {
         this.racing=racing;
@@ -42,5 +45,8 @@ export class RacingComponent implements OnInit {
     this.router.navigateByUrl('games/'+id)
   }  
 
-
+  ngOnDestroy()
+  {
+    this.mySubscription.unsubscribe();
+  }
 }
