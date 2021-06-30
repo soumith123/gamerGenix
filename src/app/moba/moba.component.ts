@@ -24,25 +24,24 @@ export class MOBAComponent implements OnInit {
 
   mySubscription : Subscription;
 
-  ngOnInit(): void 
-  {
-    // getting MOBA games from service
+  ngOnInit(): void {
+
     this.mySubscription=this.gs.getMOBAGames().subscribe(
       moba=>
       {
-        this.moba=moba;
+        this.moba=moba.message
       },
       err=>
       {
-        console.log("error in getting MOBA games are", err)
+        console.log("err is", err)
+        alert(err.message)
       }
     )
   }
-
   // after clicking game info button it navigates to game details page
-  onSelectId(id)
+  onSelectGame(gameName)
   {
-    this.router.navigateByUrl('games/'+id)
+    this.router.navigateByUrl("/moba/"+gameName)
   }
 
   ngOnDestroy()

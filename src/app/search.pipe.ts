@@ -7,7 +7,7 @@ import { Games } from './models/game.model';
 export class SearchPipe implements PipeTransform {
 
   //search pipe
-  transform(game: Games[], searchTerm:string): Games[]
+  transform(game: any, searchTerm:string): any
   {
 
     // if we not entered any product..it means search bar is empty, it returns the all producst
@@ -19,7 +19,7 @@ export class SearchPipe implements PipeTransform {
     //if search bar is not empty, it gives the matched item for entered element
     else
     {
-      return game.filter(game=>game.title.toLowerCase().indexOf(searchTerm.toLowerCase())!==-1)
+      return game.filter(game=>game.gameName.toLowerCase().indexOf(searchTerm.toLowerCase())!==-1)
     }
   }
 }

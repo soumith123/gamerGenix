@@ -1,32 +1,37 @@
 <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
   <div class="container-fluid">
-    <a class="navbar-brand ms-5" href="#"><i class="fas fa-chess-king me-2"></i>GamerGenix</a>
+    <a class="navbar-brand ms-5" id="gamerGenixHeading"><i class="fas fa-chess-king me-2"></i>GamerGenix</a>
     <button class="navbar-toggler text-dark" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon text-white"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav  ms-auto">
-        <li class="nav-item">
 
+        <li class="nav-item">
           <a class="nav-link"  routerLink="home"  routerLinkActive="active">Home</a>
         </li>
 
-        <li class="nav-item">
-          <a class="nav-link" routerLink="games"  routerLinkActive="active">Games</a>
+        <li class="nav-item" *ngIf="!us.userLoginStatus">
+          <a class="nav-link" routerLink="register"  routerLinkActive="active">Register</a>
         </li>
 
-        <li class="nav-item">
-          <a class="nav-link" routerLink="contactus"  routerLinkActive="active">ContactUs</a>
-        </li>
-
-        <li class="nav-item">
+        <li class="nav-item" *ngIf="!us.userLoginStatus">
           <a class="nav-link" routerLink="login"  routerLinkActive="active">Login</a>
         </li>
 
-        <li class="nav-item">
-          <a class="nav-link" routerLink="register"  routerLinkActive="active">Register</a>
+        <li class="nav-item" *ngIf="us.userLoginStatus">
+          <a class="nav-link" routerLink="login"  routerLinkActive="active" (click)="userLogout()">Logout</a>
         </li>
-       
+
+
+         <li class="nav-item" *ngIf="us.userLoginStatus">
+          <a class="nav-link" routerLink="games" routerLinkActive="active">Games</a>
+        </li>
+
+        <!-- <li class="nav-item">
+          <a class="nav-link" routerLink="contactus"  routerLinkActive="active">ContactUs</a>
+        </li> --> 
+
       </ul>
     </div>
   </div>

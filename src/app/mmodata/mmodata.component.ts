@@ -10,30 +10,26 @@ import { Games } from '../models/game.model';
 })
 export class MmodataComponent implements OnInit {
 
-  mmo:Games;
+  mmo:any;
 
   //injecting gamesService object
-  constructor(private ar:ActivatedRoute, private fs:GamesService) { }
+  constructor(private ar:ActivatedRoute, private gamesService:GamesService) {}
 
   ngOnInit(): void 
   {
+    let gameName=this.ar.snapshot.params.gameName;
 
-    //getting id from url
-    let id=this.ar.snapshot.params.id;
-    
-    //get data of MMO game with current id
-    this.fs.getMMOGamesById(id).subscribe(
-      obj=>
+    this.gamesService.getMMOGameDetails(gameName).subscribe(
+      mmo=>
       {
-        //assigning MMO game
-        this.mmo=obj;
+        this.mmo=mmo.message;        
       },
       err=>
       {
-        console.log("error in getting details of mmo games is:", err);
+        console.log("error in getting mmo game details is", err);        
       }
     )
-  } 
+  }
 
 
 }

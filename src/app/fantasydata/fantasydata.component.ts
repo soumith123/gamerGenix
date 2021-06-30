@@ -10,29 +10,24 @@ import { Games } from '../models/game.model';
 })
 export class FantasydataComponent implements OnInit {
 
-  fantasy:Games;
+  fantasy:any;
 
   //injecting gamesService object
-  constructor(private ar:ActivatedRoute, private fs:GamesService) { }
+  constructor(private ar:ActivatedRoute, private gamesService:GamesService) {}
 
   ngOnInit(): void 
   {
+    let gameName=this.ar.snapshot.params.gameName;
 
-    //getting id from url
-    let id=this.ar.snapshot.params.id;
-    
-    //get data of fantasy game with current id
-    this.fs.getFantasyGamesById(id).subscribe(
-      obj=>
+    this.gamesService.getFantasyGameDetails(gameName).subscribe(
+      fantasy=>
       {
-        //assigning fantasy game
-        this.fantasy=obj;
+        this.fantasy=fantasy.message;        
       },
       err=>
       {
-        console.log("error in getting details of fantasy games is:", err);
+        console.log("error in getting shooting game details is", err);        
       }
     )
-  } 
-
+  }
 }

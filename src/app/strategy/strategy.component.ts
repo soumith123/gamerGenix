@@ -24,25 +24,25 @@ export class StrategyComponent implements OnInit {
 
   mySubscription : Subscription;
 
-  ngOnInit(): void 
-  {
-    // getting strategy games from service
+  ngOnInit(): void {
+
     this.mySubscription=this.gs.getStrategyGames().subscribe(
       strategy=>
       {
-        this.strategy=strategy;
+        this.strategy=strategy.message
       },
       err=>
       {
-        console.log("error in getting strategy games is", err)
+        console.log("err is", err)
+        alert(err.message)
       }
     )
   }
 
   // after clicking game info button it navigates to game details page
-  onSelectId(id)
+  onSelectGame(gameName)
   {
-    this.router.navigateByUrl('games/'+id)
+    this.router.navigateByUrl("/strategy/"+gameName)
   }
 
   ngOnDestroy()

@@ -26,7 +26,7 @@ export class GamesdataComponent implements OnInit {
     let id=this.ar.snapshot.params.id;
     
     //get data of game with current id
-    this.fs.getGameById(id).subscribe(
+    this.fs.getGameDetails(id).subscribe(
       obj=>
       {
         //assigning games

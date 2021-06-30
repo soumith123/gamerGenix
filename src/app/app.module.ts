@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import {HttpClientModule} from '@angular/common/http'
+import {HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http'
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { GamesComponent } from './games/games.component';
@@ -42,6 +42,7 @@ import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { AllgamesComponent } from './allgames/allgames.component';
 import { AllgamesdataComponent } from './allgamesdata/allgamesdata.component'
+import { AuthorizationService } from './authorization.service';
 
 @NgModule({
   declarations: [
@@ -90,7 +91,12 @@ import { AllgamesdataComponent } from './allgamesdata/allgamesdata.component'
     SharedModule, 
     FormsModule
   ],
-  providers: [],
+  providers: [
+    {
+      provide:HTTP_INTERCEPTORS,
+      useClass:AuthorizationService,
+      multi:true
+    }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

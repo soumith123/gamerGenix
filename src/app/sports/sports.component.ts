@@ -14,7 +14,7 @@ export class SportsComponent implements OnInit {
   constructor(private gs:GamesService, private router:Router) { }
 
   // storing sports games
-  sports:Games[]=[];
+  sports:any[]=[];
 
   // for pagination
   p=1;
@@ -24,29 +24,30 @@ export class SportsComponent implements OnInit {
 
   mySubscription : Subscription;
 
-  ngOnInit(): void 
-  {
-    // getting sports games from service
+  ngOnInit(): void {
+
     this.mySubscription=this.gs.getSportsGames().subscribe(
       sports=>
       {
-        this.sports=sports;
+        this.sports=sports.message
       },
       err=>
       {
-        console.log("error in getting sports games is", err)
+        console.log("err is", err)
+        alert(err.message)
       }
     )
   }
 
   // after clicking game info button it navigates to game details page
-  onSelectId(id)
+  onSelectGame(gameName)
   {
-    this.router.navigateByUrl('games/'+id)
+    this.router.navigateByUrl("/sports/"+gameName)
   }
 
   ngOnDestroy()
   {
     this.mySubscription.unsubscribe();
   }
+  
 }

@@ -14,7 +14,7 @@ export class FightingComponent implements OnInit {
   constructor(private gs:GamesService, private router:Router) { }
 
   // storing fighting games
-  fighting:Games[]=[];
+  fighting:any[]=[];
 
   // for pagination
   p=1;
@@ -24,25 +24,24 @@ export class FightingComponent implements OnInit {
 
   mySubscription : Subscription;
 
-  ngOnInit(): void 
-  {
-    // getting fighting games from service
-    this.mySubscription=this.gs.getFightinggGames().subscribe(
+  ngOnInit(): void {
+
+    this.mySubscription=this.gs.getFightingGames().subscribe(
       fighting=>
       {
-        this.fighting=fighting;
+        this.fighting=fighting.message
       },
       err=>
       {
-        console.log("error in getting fighting games are", err)
+        console.log("err is", err)
+        alert(err.message)
       }
     )
   }
-
   // after clicking game info button it navigates to game details page
-  onSelectId(id)
+  onSelectGame(gameName)
   {
-    this.router.navigateByUrl('games/'+id)
+    this.router.navigateByUrl("/fighting/"+gameName)
   }
 
   ngOnDestroy()

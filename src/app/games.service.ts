@@ -12,393 +12,181 @@ export class GamesService {
 
 
   // total games
-  getGamesData():Observable<Games[]>
+  getAllGames():Observable<any>
   {
-    return this.hc.get<Games[]>("https://free-to-play-games-database.p.rapidapi.com/api/games?sort-by=alphabetical",
-    {
-
-      "headers":
-      {
-
-        "x-rapidapi-key": "9f6970e90cmsh75445f0710e28acp1a6671jsnc6184bbdcfb9",
-        "x-rapidapi-host": "free-to-play-games-database.p.rapidapi.com",
-      }  
-
-    })
+    return this.hc.get("/game/getgames")
   }
 
 
-
-  getGameById(id):Observable<Games>
+  // all games details
+  getGameDetails(gameName):Observable<any>
   {
-
-    let ID=id.toString()
-    return this.hc.get<Games>("https://free-to-play-games-database.p.rapidapi.com/api/game?id="+ID,
-    {
-
-      "headers":
-      {
-
-        "x-rapidapi-key": "9f6970e90cmsh75445f0710e28acp1a6671jsnc6184bbdcfb9",
-	      "x-rapidapi-host": "free-to-play-games-database.p.rapidapi.com",
-      },
-
-    }) 
-  }
-
-  getShootingGames():Observable<Games[]>
-  {
-    return this.hc.get<Games[]>("https://free-to-play-games-database.p.rapidapi.com/api/games?category=shooter",
-    {
-      "headers":
-      {
-        "x-rapidapi-key": "9f6970e90cmsh75445f0710e28acp1a6671jsnc6184bbdcfb9",
-	      "x-rapidapi-host": "free-to-play-games-database.p.rapidapi.com",
-      }
-    })
-  }
-
-  getShootingGamesById(id):Observable<Games>
-  {
-
-    let ID=id.toString()
-    return this.hc.get<Games>("https://free-to-play-games-database.p.rapidapi.com/api/games?category=shooter?id="+ID,
-    {
-
-      "headers":
-      {
-
-        "x-rapidapi-key": "9f6970e90cmsh75445f0710e28acp1a6671jsnc6184bbdcfb9",
-	      "x-rapidapi-host": "free-to-play-games-database.p.rapidapi.com",
-      },
-
-    }) 
-  }
-
-  getSocialgGames():Observable<Games[]>
-  {
-    return this.hc.get<Games[]>("https://free-to-play-games-database.p.rapidapi.com/api/games?category=social",
-    {
-      "headers":
-      {
-        "x-rapidapi-key": "9f6970e90cmsh75445f0710e28acp1a6671jsnc6184bbdcfb9",
-	      "x-rapidapi-host": "free-to-play-games-database.p.rapidapi.com",
-      }
-    })
-  }
-
-  getSocialGamesById(id):Observable<Games>
-  {
-
-    let ID=id.toString()
-    return this.hc.get<Games>("https://free-to-play-games-database.p.rapidapi.com/api/games?category=social?id="+ID,
-    {
-
-      "headers":
-      {
-
-        "x-rapidapi-key": "9f6970e90cmsh75445f0710e28acp1a6671jsnc6184bbdcfb9",
-	      "x-rapidapi-host": "free-to-play-games-database.p.rapidapi.com",
-      },
-
-    }) 
-  }
-
-  getFightinggGames():Observable<Games[]>
-  {
-    return this.hc.get<Games[]>("https://free-to-play-games-database.p.rapidapi.com/api/games?category=fighting",
-    {
-      "headers":
-      {
-        "x-rapidapi-key": "9f6970e90cmsh75445f0710e28acp1a6671jsnc6184bbdcfb9",
-	      "x-rapidapi-host": "free-to-play-games-database.p.rapidapi.com",
-      }
-    })
-  }
-
-  getFightingGamesById(id):Observable<Games>
-  {
-
-    let ID=id.toString()
-    return this.hc.get<Games>("https://free-to-play-games-database.p.rapidapi.com/api/games?category=fighting?id="+ID,
-    {
-
-      "headers":
-      {
-
-        "x-rapidapi-key": "9f6970e90cmsh75445f0710e28acp1a6671jsnc6184bbdcfb9",
-	      "x-rapidapi-host": "free-to-play-games-database.p.rapidapi.com",
-      },
-
-    }) 
-  }
-
-  getRacingGames():Observable<Games[]>
-  {
-    return this.hc.get<Games[]>("https://free-to-play-games-database.p.rapidapi.com/api/games?category=racing",
-    {
-      "headers":
-      {
-        "x-rapidapi-key": "9f6970e90cmsh75445f0710e28acp1a6671jsnc6184bbdcfb9",
-	      "x-rapidapi-host": "free-to-play-games-database.p.rapidapi.com",
-      }
-    })
-  }
-
-  getRacingGamesById(id):Observable<Games>
-  {
-
-    let ID=id.toString()
-    return this.hc.get<Games>("https://free-to-play-games-database.p.rapidapi.com/api/games?category=racing?id="+ID,
-    {
-
-      "headers":
-      {
-
-        "x-rapidapi-key": "9f6970e90cmsh75445f0710e28acp1a6671jsnc6184bbdcfb9",
-	      "x-rapidapi-host": "free-to-play-games-database.p.rapidapi.com",
-      },
-
-    }) 
+    return this.hc.get(`game/getgame/${gameName}`)
   }
 
 
-  getSportsGames():Observable<Games[]>
+  // shooting games
+  getShootingGames():Observable<any>
   {
-    return this.hc.get<Games[]>("https://free-to-play-games-database.p.rapidapi.com/api/games?category=sports",
-    {
-      "headers":
-      {
-        "x-rapidapi-key": "9f6970e90cmsh75445f0710e28acp1a6671jsnc6184bbdcfb9",
-	      "x-rapidapi-host": "free-to-play-games-database.p.rapidapi.com",
-      }
-    })
-  }
-
-  getSportsGamesById(id):Observable<Games>
-  {
-
-    let ID=id.toString()
-    return this.hc.get<Games>("https://free-to-play-games-database.p.rapidapi.com/api/games?category=sports?id="+ID,
-    {
-
-      "headers":
-      {
-
-        "x-rapidapi-key": "9f6970e90cmsh75445f0710e28acp1a6671jsnc6184bbdcfb9",
-	      "x-rapidapi-host": "free-to-play-games-database.p.rapidapi.com",
-      },
-
-    }) 
-  }
-
-  getMOBAGames():Observable<Games[]>
-  {
-    return this.hc.get<Games[]>("https://free-to-play-games-database.p.rapidapi.com/api/games?category=MOBA",
-    {
-      "headers":
-      {
-        "x-rapidapi-key": "9f6970e90cmsh75445f0710e28acp1a6671jsnc6184bbdcfb9",
-	      "x-rapidapi-host": "free-to-play-games-database.p.rapidapi.com",
-      }
-    })
-  }
-
-  getMOBAGamesById(id):Observable<Games>
-  {
-
-    let ID=id.toString()
-    return this.hc.get<Games>("https://free-to-play-games-database.p.rapidapi.com/api/games?category=MOBA?id="+ID,
-    {
-
-      "headers":
-      {
-
-        "x-rapidapi-key": "9f6970e90cmsh75445f0710e28acp1a6671jsnc6184bbdcfb9",
-	      "x-rapidapi-host": "free-to-play-games-database.p.rapidapi.com",
-      },
-
-    }) 
-  }
-
-  getCardGames():Observable<Games[]>
-  {
-    return this.hc.get<Games[]>("https://free-to-play-games-database.p.rapidapi.com/api/games?category=card",
-    {
-      "headers":
-      {
-        "x-rapidapi-key": "9f6970e90cmsh75445f0710e28acp1a6671jsnc6184bbdcfb9",
-	      "x-rapidapi-host": "free-to-play-games-database.p.rapidapi.com",
-      }
-    })
-  }
-
-  getCardGamesById(id):Observable<Games>
-  {
-
-    let ID=id.toString()
-    return this.hc.get<Games>("https://free-to-play-games-database.p.rapidapi.com/api/games?category=card?id="+ID,
-    {
-
-      "headers":
-      {
-
-        "x-rapidapi-key": "9f6970e90cmsh75445f0710e28acp1a6671jsnc6184bbdcfb9",
-	      "x-rapidapi-host": "free-to-play-games-database.p.rapidapi.com",
-      },
-
-    }) 
-  }
-
-  getStrategyGames():Observable<Games[]>
-  {
-    return this.hc.get<Games[]>("https://free-to-play-games-database.p.rapidapi.com/api/games?category=strategy",
-    {
-      "headers":
-      {
-        "x-rapidapi-key": "9f6970e90cmsh75445f0710e28acp1a6671jsnc6184bbdcfb9",
-	      "x-rapidapi-host": "free-to-play-games-database.p.rapidapi.com",
-      }
-    })
-  }
-
-  getStrategyGamesById(id):Observable<Games>
-  {
-
-    let ID=id.toString()
-    return this.hc.get<Games>("https://free-to-play-games-database.p.rapidapi.com/api/games?category=strategy?id="+ID,
-    {
-
-      "headers":
-      {
-
-        "x-rapidapi-key": "9f6970e90cmsh75445f0710e28acp1a6671jsnc6184bbdcfb9",
-	      "x-rapidapi-host": "free-to-play-games-database.p.rapidapi.com",
-      },
-
-    }) 
+    return this.hc.get("/game/getshootinggames")
   }
 
 
-  getFantasyGames():Observable<Games[]>
+  // shooting game details
+  getShootingGameDetails(gameName):Observable<any>
   {
-    return this.hc.get<Games[]>("https://free-to-play-games-database.p.rapidapi.com/api/games?category=fantasy",
-    {
-      "headers":
-      {
-        "x-rapidapi-key": "9f6970e90cmsh75445f0710e28acp1a6671jsnc6184bbdcfb9",
-	      "x-rapidapi-host": "free-to-play-games-database.p.rapidapi.com",
-      }
-    })
+    return this.hc.get(`game/getshootinggame/${gameName}`)
   }
 
 
-  getFantasyGamesById(id):Observable<Games>
+  // social games
+  getSocialGames():Observable<any>
   {
-
-    let ID=id.toString()
-    return this.hc.get<Games>("https://free-to-play-games-database.p.rapidapi.com/api/games?category=fantasy?id="+ID,
-    {
-
-      "headers":
-      {
-
-        "x-rapidapi-key": "9f6970e90cmsh75445f0710e28acp1a6671jsnc6184bbdcfb9",
-	      "x-rapidapi-host": "free-to-play-games-database.p.rapidapi.com",
-      },
-
-    }) 
+    return this.hc.get("/game/getsocialgames")
   }
 
 
-  getMMOGames():Observable<Games[]>
+  // social game details
+  getSocialGameDetails(gameName):Observable<any>
   {
-    return this.hc.get<Games[]>("https://free-to-play-games-database.p.rapidapi.com/api/games?category=mmo",
-    {
-      "headers":
-      {
-        "x-rapidapi-key": "9f6970e90cmsh75445f0710e28acp1a6671jsnc6184bbdcfb9",
-	      "x-rapidapi-host": "free-to-play-games-database.p.rapidapi.com",
-      }
-    })
-  }
-
-  getMMOGamesById(id):Observable<Games>
-  {
-
-    let ID=id.toString()
-    return this.hc.get<Games>("https://free-to-play-games-database.p.rapidapi.com/api/games?category=mmo?id="+ID,
-    {
-
-      "headers":
-      {
-
-        "x-rapidapi-key": "9f6970e90cmsh75445f0710e28acp1a6671jsnc6184bbdcfb9",
-	      "x-rapidapi-host": "free-to-play-games-database.p.rapidapi.com",
-      },
-
-    }) 
+    return this.hc.get(`game/getsocialgame/${gameName}`)
   }
 
 
-
-  getActionGames():Observable<Games[]>
+  // fighting games
+  getFightingGames():Observable<any>
   {
-    return this.hc.get<Games[]>("https://free-to-play-games-database.p.rapidapi.com/api/games?category=action",
-    {
-      "headers":
-      {
-        "x-rapidapi-key": "9f6970e90cmsh75445f0710e28acp1a6671jsnc6184bbdcfb9",
-	      "x-rapidapi-host": "free-to-play-games-database.p.rapidapi.com",
-      }
-    })
+    return this.hc.get("/game/getfightinggames")
   }
 
 
-  getActionGamesById(id):Observable<Games>
+  // fighting game details
+  getFightingGameDetails(gameName):Observable<any>
   {
-
-    let ID=id.toString()
-    return this.hc.get<Games>("https://free-to-play-games-database.p.rapidapi.com/api/games?category=action?id="+ID,
-    {
-
-      "headers":
-      {
-
-        "x-rapidapi-key": "9f6970e90cmsh75445f0710e28acp1a6671jsnc6184bbdcfb9",
-	      "x-rapidapi-host": "free-to-play-games-database.p.rapidapi.com",
-      },
-
-    }) 
+    return this.hc.get(`game/getfightinggame/${gameName}`)
   }
 
 
-  getMMORPGGames():Observable<Games[]>
+  // racing games
+  getRacingGames():Observable<any>
   {
-    return this.hc.get<Games[]>("https://free-to-play-games-database.p.rapidapi.com/api/games?category=mmorpg",
-    {
-      "headers":
-      {
-        "x-rapidapi-key": "9f6970e90cmsh75445f0710e28acp1a6671jsnc6184bbdcfb9",
-	      "x-rapidapi-host": "free-to-play-games-database.p.rapidapi.com",
-      }
-    })
+    return this.hc.get("/game/getRacinggames")
   }
 
-  getMMORPGGamesById(id):Observable<Games>
+
+  // racing game details
+  getRacingGameDetails(gameName):Observable<any>
   {
+    return this.hc.get(`game/getracinggame/${gameName}`)
+  }
 
-    let ID=id.toString()
-    return this.hc.get<Games>("https://free-to-play-games-database.p.rapidapi.com/api/games?category=mmorpg?id="+ID,
-    {
 
-      "headers":
-      {
+  // sports games
+  getSportsGames():Observable<any>
+  {
+    return this.hc.get("/game/getSportsgames")
+  }
 
-        "x-rapidapi-key": "9f6970e90cmsh75445f0710e28acp1a6671jsnc6184bbdcfb9",
-	      "x-rapidapi-host": "free-to-play-games-database.p.rapidapi.com",
-      },
+  // sports game details
+  getSportsGameDetails(gameName):Observable<any>
+  {
+    return this.hc.get(`game/getsportsgame/${gameName}`)
+  }
 
-    }) 
+  
+  // MOBA games
+  getMOBAGames():Observable<any>
+  {
+    return this.hc.get("/game/getMOBAgames")
+  }
+
+
+  // MOBA game details
+  getMOBAGameDetails(gameName):Observable<any>
+  {
+    return this.hc.get(`game/getMOBAgame/${gameName}`)
+  }
+  
+
+
+  // card games
+  getCardGames():Observable<any>
+  {
+    return this.hc.get("/game/getcardgames")
+  }
+
+
+  // card game details
+  getCardGameDetails(gameName):Observable<any>
+  {
+    return this.hc.get(`game/getcardgame/${gameName}`)
+  }
+
+
+  // strategy games
+  getStrategyGames():Observable<any>
+  {
+    return this.hc.get("/game/getstrategygames")
+  }
+
+
+  // strategy game details
+  getStrategyGameDetails(gameName):Observable<any>
+  {
+    return this.hc.get(`game/getstrategygame/${gameName}`)
+  }
+
+  // Fantasy games
+  getFantasyGames():Observable<any>
+  {
+    return this.hc.get("/game/getfantasygames")
+  }
+
+
+  // fantasy game details
+  getFantasyGameDetails(gameName):Observable<any>
+  {
+    return this.hc.get(`game/getfantasygame/${gameName}`)
+  }
+
+
+  // MMO games
+  getMMOGames():Observable<any>
+  {
+    return this.hc.get("/game/getMMOgames")
+  }
+
+
+  // MMO game details
+  getMMOGameDetails(gameName):Observable<any>
+  {
+    return this.hc.get(`game/getmmogame/${gameName}`)
+  }
+
+  // action games
+  getActionGames():Observable<any>
+  {
+    return this.hc.get("/game/getActiongames")
+  }
+
+
+  // action game details
+  getActionGameDetails(gameName):Observable<any>
+  {
+    return this.hc.get(`game/getactiongame/${gameName}`)
+  }
+
+
+  // mmorpg games
+  getMMORPGGames():Observable<any>
+  {
+    return this.hc.get("/game/getMMORPGgames")
+  }
+
+
+  // MMORPG game details
+  getMMORPGGameDetails(gameName):Observable<any>
+  {
+    return this.hc.get(`game/getMMORPGgame/${gameName}`)
   }
 }

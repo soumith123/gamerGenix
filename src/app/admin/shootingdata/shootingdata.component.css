@@ -1,0 +1,84 @@
+.card
+{
+    border-radius: 20px;
+    margin-top: 15px;
+}
+#image
+{
+    border-radius: 0px;
+}
+#gameTitle
+{
+    color:mediumvioletred;
+    font-weight: bold;
+    font-family: 'Pattaya', sans-serif;
+    font-size: 35px;
+    letter-spacing: 3px;
+}
+#platform,#genre,#publisher,#developer,#releaseDate
+{
+    color: coral;
+    font-weight: bold;    
+}
+input
+{
+    border-radius: 20px;
+}
+#palyButton
+{
+    box-shadow: 2px 2px 3px 3px rgb(240, 81, 81);
+}
+#aboutButton
+{
+    box-shadow: 2px 2px 2px 2px rgb(175, 175, 22);
+}
+
+@media screen and (min-width:150px) and (max-width:600px)
+{
+    #platform,#genre,#publisher,#developer,#releaseDate,#id1,#id2,#id3,#id4,#id5
+    {
+        text-align: center;
+
+    }
+    #platform,#genre,#publisher,#developer,#releaseDate
+    {
+        margin-top: 0px;
+    } 
+
+    #card4
+    {
+        height: 205px;
+        
+    }
+    
+}
+
+@media screen and (min-width:580px) and (max-width:1150px) 
+{
+    #aboutButton
+    {
+        margin-left: 100px;
+    }
+    
+}
+
+@media screen and (min-width:150px) and (max-width:440px) 
+{
+    #aboutButton
+    {
+        margin-left: 100px;
+    }
+    
+}
+a:hover
+{
+    transform: scale(1.05);
+
+}
+#card1:hover,#card2:hover,#card3:hover,#card4:hover,#card5:hover
+{
+    transform: scale(1.02);
+
+}
+
+

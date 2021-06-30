@@ -19,31 +19,31 @@ export class ShooterComponent implements OnInit {
   // to search game
   searchTerm:string;
 
-  // storing shooting games
-  shooter:Games[]=[];
-
   mySubscription : Subscription;
 
-  ngOnInit(): void 
-  {
-    // getting shooting games from service
+  shooting:any[];
+
+  userObj;
+
+  ngOnInit(): void {
+
     this.mySubscription=this.gs.getShootingGames().subscribe(
-      shooter=>
+      shooting=>
       {
-        this.shooter=shooter;
+        this.shooting=shooting.message
       },
       err=>
       {
-        console.log("error in getting shooting games are", err)
+        console.log("err is", err)
+        alert(err.message)
       }
     )
-  }
-  
+  }  
 
   // after clicking game info button it navigates to game details page
-  onSelectId(id)
+  onSelectGame(gameName)
   {
-    this.router.navigateByUrl('games/'+id)
+    this.router.navigateByUrl("/shooter/"+gameName)
   }
 
   ngOnDestroy()

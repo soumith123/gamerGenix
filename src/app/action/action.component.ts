@@ -24,25 +24,25 @@ export class ActionComponent implements OnInit {
 
   mySubscription : Subscription;
 
-  ngOnInit(): void 
-  {
-    // getting action games from service
+  ngOnInit(): void {
+
     this.mySubscription=this.gs.getActionGames().subscribe(
       action=>
       {
-        this.action=action;
+        this.action=action.message
       },
       err=>
       {
-        console.log("error in getting action games are", err)
+        console.log("err is", err)
+        alert(err.message)
       }
     )
   }
 
   // after clicking game info button it navigates to game details page
-  onSelectId(id)
+  onSelectGame(gameName)
   {
-    this.router.navigateByUrl('games/'+id)
+    this.router.navigateByUrl("/action/"+gameName)
   }
 
   ngOnDestroy()

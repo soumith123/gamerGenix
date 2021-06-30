@@ -7,16 +7,16 @@
     <div class="row row-cols-1 row-cols-sm-2 row-cols-md-2 row-cols-lg-3 row-cols-xl-3 mt-4">
 
         <!--pipes for pagination and search -->
-        <div class="col" *ngFor='let socialObj of social | search:searchTerm | paginate: {itemsPerPage:9, currentPage:p}'>
+        <div class="col" *ngFor='let social of social | search:searchTerm | paginate: {itemsPerPage:9, currentPage:p}'>
             <div class="col" >
                 <div class="card text-center mt-3 mb-3 animate__animated animate__flipInY">
-                    <img src={{socialObj.thumbnail}} width="100%">
+                    <img src={{social.thumbnail}} width="100%">
                     <div class="card-body text-white bg-dark">
-                        <div class="card-title mt-3" id="gameTitle"><h4>{{socialObj.title}}</h4></div>
+                        <div class="card-title mt-3" id="gameTitle"><h4>{{social.gameName}}</h4></div>
                         <hr class="text-white">
 
                         <!-- button for click event -->
-                        <button class="btn btn-primary mt-3 mb-3" (click)="onSelectId(socialObj.id)"><i class="fas fa-info-circle me-2"></i>Game Info</button>
+                        <button class="btn btn-primary mt-3 mb-3" (click)="onSelectGame(social.gameName)"><i class="fas fa-info-circle me-2"></i>Game Info</button>
                     </div>
                 </div>
             </div>

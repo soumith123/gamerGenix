@@ -1,0 +1,72 @@
+import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { AdminService } from '../admin.service';
+
+@Component({
+  selector: 'app-viewgames',
+  templateUrl: './viewgames.component.html',
+  styleUrls: ['./viewgames.component.css']
+})
+export class ViewgamesComponent implements OnInit {
+
+  constructor(private adminService:AdminService, private router:Router) {}
+
+  // for pagination
+  p=1;
+
+  // for searching
+  searchTerm;
+
+  // to store all games
+  games:any[];
+
+  // getting all the games from database by subscribing adminService
+  ngOnInit(): void {
+
+    let currentUser=localStorage.getItem("username")
+    this.adminService.getGames().subscribe(
+      games=>
+      {
+        this.games=games.message;
+      },
+      err=>
+      {
+        console.log("error in getting games is", err);
+        alert(err.message)
+        
+      }
+    )
+  }
+
+
+  // to delete the game
+  onDeleteGame(gameObj)
+  {
+    this.adminService.deleteGame(gameObj.gameName).subscribe(
+      res=>
+      {
+        if(res.message==="game deleted")
+        {
+          alert("Game deleted")
+        }
+        else
+        {
+          alert(res.message)
+        }
+      },
+      err=>
+      {
+        console.log("error in deleting game is", err);
+        alert("Something wrong in dleeting game")        
+      }
+    )
+  }
+
+
+  // after clicking game info button it navigates to game details page
+  onSelectGame(gameName)
+  {
+    this.router.navigateByUrl("/admin/gamerGenix/viewGames/"+gameName)
+  }  
+
+}

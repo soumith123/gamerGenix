@@ -10,30 +10,26 @@ import { Games } from '../models/game.model';
 })
 export class MobadataComponent implements OnInit {
 
-  moba:Games;
+  moba:any;
 
   //injecting gamesService object
-  constructor(private ar:ActivatedRoute, private fs:GamesService) { }
+  constructor(private ar:ActivatedRoute, private gamesService:GamesService) {}
 
   ngOnInit(): void 
   {
+    let gameName=this.ar.snapshot.params.gameName;
 
-    //getting id from url
-    let id=this.ar.snapshot.params.id;
-    
-    //get data of moba game with current id
-    this.fs.getMOBAGamesById(id).subscribe(
-      obj=>
+    this.gamesService.getMOBAGameDetails(gameName).subscribe(
+      moba=>
       {
-        //assigning moba game
-        this.moba=obj;
+        this.moba=moba.message;        
       },
       err=>
       {
-        console.log("error in getting details of MOBA games is:", err);
+        console.log("error in getting moba game details is", err);        
       }
     )
-  } 
+  }
 
 
 }

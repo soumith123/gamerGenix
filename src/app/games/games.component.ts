@@ -20,7 +20,7 @@ export class GamesComponent implements OnInit {
   gamesObj:Games[]=[];
 
   ngOnInit(): void {
-    this.gameObj.getGamesData().subscribe(
+    this.gameObj.getAllGames().subscribe(
       gamesData=>
       {
         this.gamesObj=gamesData;

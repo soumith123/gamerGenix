@@ -10,28 +10,24 @@ import { Games } from '../models/game.model';
 })
 export class ActiondataComponent implements OnInit {
 
-  action:Games;
+  action:any;
 
   //injecting gamesService object
-  constructor(private ar:ActivatedRoute, private fs:GamesService) { }
+  constructor(private ar:ActivatedRoute, private gamesService:GamesService) {}
 
   ngOnInit(): void 
   {
+    let gameName=this.ar.snapshot.params.gameName;
 
-    //getting id from url
-    let id=this.ar.snapshot.params.id;
-    
-    //get data of action game with current id
-    this.fs.getActionGamesById(id).subscribe(
-      obj=>
+    this.gamesService.getActionGameDetails(gameName).subscribe(
+      action=>
       {
-        //assigning action game
-        this.action=obj;
+        this.action=action.message;        
       },
       err=>
       {
-        console.log("error in getting details of action is:", err);
+        console.log("error in getting shooting game details is", err);        
       }
     )
-  } 
+  }
 }

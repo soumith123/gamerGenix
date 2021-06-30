@@ -10,30 +10,23 @@ import { Games } from '../models/game.model';
 })
 export class SocialdataComponent implements OnInit {
 
-  social:Games;
-  
+  social:any;  
 
-  //injecting gamesService object
-  constructor(private ar:ActivatedRoute, private fs:GamesService) { }
+  constructor(private ar:ActivatedRoute, private gamesService:GamesService) {}
 
   ngOnInit(): void 
   {
+    let gameName=this.ar.snapshot.params.gameName;
 
-    //getting id from url
-    let id=this.ar.snapshot.params.id;
-    
-    //get data of social game with current id
-    this.fs.getSocialGamesById(id).subscribe(
-      obj=>
+    this.gamesService.getSocialGameDetails(gameName).subscribe(
+      social=>
       {
-        //assigning social games
-        this.social=obj;
+        this.social=social.message;
       },
       err=>
       {
-        console.log("error in getting details of social game is:", err);
+        console.log("error in getting social game details is", err);        
       }
     )
-  } 
-
+  }
 }

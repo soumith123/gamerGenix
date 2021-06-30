@@ -24,25 +24,25 @@ export class FantasyComponent implements OnInit {
 
   mySubscription : Subscription;
 
-  ngOnInit(): void 
-  {
-    // getting fantasy games from service
+  ngOnInit(): void {
+
     this.mySubscription=this.gs.getFantasyGames().subscribe(
       fantasy=>
       {
-        this.fantasy=fantasy;
+        this.fantasy=fantasy.message
       },
       err=>
       {
-        console.log("error in getting fantasy games are", err)
+        console.log("err is", err)
+        alert(err.message)
       }
     )
   }
 
   // after clicking game info button it navigates to game details page
-  onSelectId(id)
+  onSelectGame(gameName)
   {
-    this.router.navigateByUrl('games/'+id)
+    this.router.navigateByUrl("/fantasy/"+gameName)
   }
 
   ngOnDestroy()

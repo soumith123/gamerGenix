@@ -24,25 +24,25 @@ export class MmoComponent implements OnInit {
 
   mySubscription : Subscription;
 
-  ngOnInit(): void 
-  {
-    // getting MMO games from service
+  ngOnInit(): void {
+
     this.mySubscription=this.gs.getMMOGames().subscribe(
       mmo=>
       {
-        this.mmo=mmo;
+        this.mmo=mmo.message
       },
       err=>
       {
-        console.log("error in getting mmo games are", err)
+        console.log("err is", err)
+        alert(err.message)
       }
     )
   }
 
   // after clicking game info button it navigates to game details page
-  onSelectId(id)
+  onSelectGame(gameName)
   {
-    this.router.navigateByUrl('games/'+id)
+    this.router.navigateByUrl("/mmo/"+gameName)
   }
 
   ngOnDestroy()

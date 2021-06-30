@@ -12,11 +12,11 @@
                 <div class="card text-center mt-3 mb-3 animate__animated animate__flipInY">
                     <img src={{mobaObj.thumbnail}} width="100%">
                     <div class="card-body text-white bg-dark">
-                        <div class="card-title mt-3" id="gameTitle"><h4>{{mobaObj.title}}</h4></div>
+                        <div class="card-title mt-3" id="gameTitle"><h4>{{mobaObj.gameName}}</h4></div>
                         <hr class="text-white">
 
                          <!-- button for click event -->
-                        <button class="btn btn-primary mt-3 mb-3" (click)="onSelectId(mobaObj.id)"><i class="fas fa-info-circle me-2"></i>Game Info</button>
+                        <button class="btn btn-primary mt-3 mb-3" (click)="onSelectGame(mobaObj.gameName)"><i class="fas fa-info-circle me-2"></i>Game Info</button>
                     </div>
                 </div>
             </div>

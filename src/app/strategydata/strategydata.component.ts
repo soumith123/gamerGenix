@@ -10,29 +10,24 @@ import { Games } from '../models/game.model';
 })
 export class StrategydataComponent implements OnInit {
 
-  strategy:Games;
+  strategy:any;
 
-  //injecting gamesService object
-  constructor(private ar:ActivatedRoute, private fs:GamesService) { }
+  constructor(private ar:ActivatedRoute, private gamesService:GamesService) {}
 
   ngOnInit(): void 
   {
+    let gameName=this.ar.snapshot.params.gameName;
 
-    //getting id from url
-    let id=this.ar.snapshot.params.id;
-    
-    //get data of strategy game with current id
-    this.fs.getStrategyGamesById(id).subscribe(
-      obj=>
+    this.gamesService.getStrategyGameDetails(gameName).subscribe(
+      strategy=>
       {
-        //assigning strategy game
-        this.strategy=obj;
+        this.strategy=strategy.message;
       },
       err=>
       {
-        console.log("error in getting details of strategy game is:", err);
+        console.log("error in getting shooting game details is", err);        
       }
     )
-  } 
+  }
 
 }

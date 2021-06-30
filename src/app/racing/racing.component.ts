@@ -24,26 +24,26 @@ export class RacingComponent implements OnInit {
 
   mySubscription : Subscription;
 
-  ngOnInit(): void 
-  {
-    // getting racing games from service
+  ngOnInit(): void {
+
     this.mySubscription=this.gs.getRacingGames().subscribe(
       racing=>
       {
-        this.racing=racing;
+        this.racing=racing.message
       },
       err=>
       {
-        console.log("error in getting racing games are", err)
+        console.log("err is", err)
+        alert(err.message)
       }
     )
   }
-
+  
   // after clicking game info button it navigates to game details page
-  onSelectId(id)
+  onSelectGame(gameName)
   {
-    this.router.navigateByUrl('games/'+id)
-  }  
+    this.router.navigateByUrl("/racing/"+gameName)
+  }
 
   ngOnDestroy()
   {
