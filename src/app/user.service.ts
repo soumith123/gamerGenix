@@ -1,11 +1,20 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
+
+
+  dataSource=new BehaviorSubject<any>(0)
+  dataObservable=this.dataSource.asObservable();
+
+  updataDataObservable(data)
+  {
+    this.dataSource.next(data);
+  }
 
   userLoginStatus=false;
 

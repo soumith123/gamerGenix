@@ -7,6 +7,7 @@ import { AllgamesComponent } from './allgames/allgames.component';
 import { AllgamesdataComponent } from './allgamesdata/allgamesdata.component';
 import { CardComponent } from './card/card.component';
 import { CarddataComponent } from './carddata/carddata.component';
+import { CartgamedetailsComponent } from './cartgamedetails/cartgamedetails.component';
 import { ContactusComponent } from './contactus/contactus.component';
 import { DataComponent } from './data/data.component';
 import { FantasyComponent } from './fantasy/fantasy.component';
@@ -17,6 +18,7 @@ import { GamesComponent } from './games/games.component';
 import { GamesdataComponent } from './gamesdata/gamesdata.component';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
+import { LovedcartComponent } from './lovedcart/lovedcart.component';
 import { MmoComponent } from './mmo/mmo.component';
 import { MmodataComponent } from './mmodata/mmodata.component';
 import { MmorpgComponent } from './mmorpg/mmorpg.component';
@@ -51,6 +53,7 @@ const routes: Routes = [
     {path:'strategy', component:StrategyComponent},
     {path:'racing', component:RacingComponent},
     {path:'allGames', component:AllgamesComponent},
+    {path:'lovedGames', component:LovedcartComponent},
     {path:'', redirectTo:'action', pathMatch:'full'} 
 
   ]},
@@ -68,6 +71,7 @@ const routes: Routes = [
   {path:"strategy/:gameName", component:StrategydataComponent},  
   {path:"racing/:gameName", component:RacingdataComponent}, 
   {path:"allGames/:gameName", component:AllgamesdataComponent},  
+  {path:'lovedGames/:gameName', component:CartgamedetailsComponent},
 
   {path:'home', component:HomeComponent},
   {path:'data', component:DataComponent},

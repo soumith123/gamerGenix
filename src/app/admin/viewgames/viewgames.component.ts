@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Games } from 'src/app/models/game.model';
 import { AdminService } from '../admin.service';
 
 @Component({
@@ -18,7 +19,7 @@ export class ViewgamesComponent implements OnInit {
   searchTerm;
 
   // to store all games
-  games:any[];
+  games:Games[];
 
   // getting all the games from database by subscribing adminService
   ngOnInit(): void {

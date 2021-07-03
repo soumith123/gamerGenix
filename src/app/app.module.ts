@@ -43,6 +43,8 @@ import { RegisterComponent } from './register/register.component';
 import { AllgamesComponent } from './allgames/allgames.component';
 import { AllgamesdataComponent } from './allgamesdata/allgamesdata.component'
 import { AuthorizationService } from './authorization.service';
+import { LovedcartComponent } from './lovedcart/lovedcart.component';
+import { CartgamedetailsComponent } from './cartgamedetails/cartgamedetails.component';
 
 @NgModule({
   declarations: [
@@ -83,6 +85,8 @@ import { AuthorizationService } from './authorization.service';
     RegisterComponent,
     AllgamesComponent,
     AllgamesdataComponent,
+    LovedcartComponent,
+    CartgamedetailsComponent,
   ],
   imports: [
     BrowserModule,

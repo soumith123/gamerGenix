@@ -1,7 +1,7 @@
 export interface Games
 {
     id:any;
-    title:any;
+    gameName:any;
     thumbnail:any;
     short_description:any;
     game_url:any;

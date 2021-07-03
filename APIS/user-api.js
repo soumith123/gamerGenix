@@ -105,9 +105,6 @@ userApi.put("/updateuser/:username", errorHandler(async(req,res) =>
 }))
 
 
-/
-
-
 // DELETE using async & await
 userApi.delete("/deleteuser/:username", errorHandler(async(req,res) =>
 {
@@ -150,8 +147,69 @@ userApi.post("/login", errorHandler(async (req,res)=>
         else
         {
             let signedToken=jwt.sign({username:credentials.username},process.env.SECRET, {expiresIn: 120})
-            res.send({message:"login success" , token:signedToken, username:credentials.username})
+            res.send({message:"login success" , token:signedToken, username:credentials.username, userObj:user})
         }
+    }
+}))
+
+
+
+
+// get games to user cart
+userApi.get("/getGames/:username", errorHandler(async(req,res,next) =>
+{
+    let userLovedGamesCollectionObj=req.app.get("userLovedGamesCollectionObj")
+
+    let un=req.params.username;
+
+    let userGameObj=await userLovedGamesCollectionObj.findOne({username:un})
+
+    if(userGameObj===null)
+    {
+        res.send({message:"User Loved Cart is empty"})
+    }
+    else
+    {
+        res.send({message:userGameObj})
+    }       
+}))
+
+
+
+
+//add to cart
+userApi.post("/addToLovedGameCart", errorHandler(async(req,res,next)=>
+{
+
+    let userLovedGamesCollectionObj=req.app.get("userLovedGamesCollectionObj")
+
+    let newGameObject=req.body;
+
+    let userCartObj= await userLovedGamesCollectionObj.findOne({username:newGameObject.username})
+
+    if(userCartObj===null)
+    {
+        let products=[];
+
+        products.push(newGameObject.gameObject)
+
+        let newUserCartObject={username:newGameObject.username, products}
+
+        await userLovedGamesCollectionObj.insertOne(newUserCartObject)
+
+        let latestCartObj= await userLovedGamesCollectionObj.findOne({username:newGameObject.username})
+        res.send({message:"New game added", latestCartObj:latestCartObj})
+    } 
+
+    else
+    {
+        userCartObj.products.push(newGameObject.gameObject)
+
+        await userLovedGamesCollectionObj.updateOne({username:newGameObject.username}, {$set:{...userCartObj}})
+
+        let latestCartObj= await userLovedGamesCollectionObj.findOne({username:newGameObject.username})
+        res.send({message:"New game added", latestCartObj:latestCartObj})
+
     }
 }))
 

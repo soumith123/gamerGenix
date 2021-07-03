@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 import { Games } from './models/game.model';
 
 @Injectable({
@@ -22,6 +22,13 @@ export class GamesService {
   getGameDetails(gameName):Observable<any>
   {
     return this.hc.get(`game/getgame/${gameName}`)
+  }
+  
+
+  // to delete a certain game
+  deleteGame(gameName):Observable<any>
+  {
+    return this.hc.delete("/game/deletegame/"+gameName)
   }
 
 
@@ -188,5 +195,18 @@ export class GamesService {
   getMMORPGGameDetails(gameName):Observable<any>
   {
     return this.hc.get(`game/getMMORPGgame/${gameName}`)
+  }
+
+  // sending user loved games to database
+  sendLovedGameToUserCart(userGameObj):Observable<any>
+  {
+    return this.hc.post("/user/addToLovedGameCart", userGameObj)
+  }
+
+
+  // getting user loved games from database
+  getGamesFromUserCart(username):Observable<any>
+  {
+    return this.hc.get(`/user/getGames/${username}`)
   }
 }

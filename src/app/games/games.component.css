@@ -5,15 +5,26 @@ a
 }
 a:hover
 {
-    color: tomato;
-    background-color: white;
+    color: white;
+    background-color: tomato;
     border-radius: 20px;
 }
 
 /* active nav item styles*/
 .active.nav-link
 {
-    color: white;
-    background-color: tomato;
+    color: tomato;
+    background-color: white;
     border-radius: 20px;
+    font-weight: bold;
+}
+
+#loveSymbol
+{
+    font-size: 25px;
+}
+
+#badge
+{
+    font-size: 14px;
 }
