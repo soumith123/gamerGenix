@@ -10,16 +10,16 @@
         <div class="col" *ngFor='let game of games | search:searchTerm | paginate: {itemsPerPage:9, currentPage:p}'>
             <!-- | search:searchTerm | paginate: {itemsPerPage:9, currentPage:p} -->
             <div class="col" >
-                <div class="card mt-3 mb-3 animate__animated animate__flipInY">
+                <div class="card mt-3 mb-3 animate__animated animate__flipInY text-center">
                     <img src={{game.thumbnail}} width="100%">
                     <div class="card-body text-white bg-dark">
                         <div class="card-title mt-3 text-center" id="gameTitle"><h4>{{game.gameName}}</h4></div>
                         <hr class="text-white">
 
                         <!-- button for click event -->
-                        <button class="btn btn-primary mt-3 mb-3 me-2" (click)="onSelectGame(game.gameName)"><i class="fas fa-info-circle me-2"></i>Game Info</button>
-                        <button class="btn btn-danger mt-3 mb-3 me-2" (click)="onDeleteGame(game)"><i class="fas fa-trash me-2"></i>Delete</button>
-                        <button class="btn btn-warning mt-3 mb-3 text-white"><i class="fas fa-edit me-2 text-white"></i>Edit</button>
+                        <button class="btn btn-primary mt-3 mb-3" (click)="onSelectGame(game.gameName)"><i class="fas fa-info-circle me-2"></i>Game Info</button>
+                        <button class="btn btn-danger mt-3 mb-3 ms-3" (click)="onDeleteGame(game)"><i class="fas fa-trash me-2"></i>Delete</button>
+                        <!-- <button class="btn btn-warning mt-3 mb-3 text-white"><i class="fas fa-edit me-2 text-white"></i>Edit</button> -->
                     </div>
                 </div>
             </div>

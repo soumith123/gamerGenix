@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { ActionComponent } from './action/action.component';
 import { ActiondataComponent } from './actiondata/actiondata.component';
-import { ShootingdataComponent } from './admin/shootingdata/shootingdata.component';
+import { AdminGuard } from './admin.guard';
 import { AllgamesComponent } from './allgames/allgames.component';
 import { AllgamesdataComponent } from './allgamesdata/allgamesdata.component';
 import { CardComponent } from './card/card.component';
@@ -29,6 +29,7 @@ import { RacingComponent } from './racing/racing.component';
 import { RacingdataComponent } from './racingdata/racingdata.component';
 import { RegisterComponent } from './register/register.component';
 import { ShooterComponent } from './shooter/shooter.component';
+import { ShootingdataComponent } from './shootingdata/shootingdata.component';
 import { SocialComponent } from './social/social.component';
 import { SocialdataComponent } from './socialdata/socialdata.component';
 import { SportsComponent } from './sports/sports.component';
@@ -79,7 +80,7 @@ const routes: Routes = [
   {path:'login', component:LoginComponent},
   {path:'register', component:RegisterComponent},
   {path:'', redirectTo:'/login', pathMatch:'full'},
-  { path: 'admin/:username', loadChildren: () => import('./admin/admin.module').then(m => m.AdminModule) },
+  { path: 'admin/:username', loadChildren: () => import('./admin/admin.module').then(m => m.AdminModule), canActivate:[AdminGuard] },
   {path:'**', component:PagenotfoundComponent},
 ];
 

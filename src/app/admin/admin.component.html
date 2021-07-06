@@ -1,19 +1,19 @@
-<ul class="nav nav-pills mt-2 mb-3 justify-content-evenly">
+<div class="maindiv">
+  <ul class="nav nav-pills justify-content-evenly">
 
-    <li class="nav-item">
-      <a class="nav-link" routerLink="addGames" routerLinkActive="active" >Add Games</a>
-    </li>
+      <li class="nav-item mt-2">
+        <a class="nav-link" routerLink="addGames" routerLinkActive="active" >Add Games</a>
+      </li>
 
-    <li class="nav-item">
-      <a class="nav-link" routerLink="viewGames"  routerLinkActive="active">View Games</a>
-    </li>
-
-    <li class="nav-item">
-      <a class="nav-link" routerLink="shoot"  routerLinkActive="active">Shooting Games</a>
-    </li>
-</ul>
-
-
-<div>
-    <router-outlet></router-outlet>
+      <li class="nav-item mt-2">
+        <a class="nav-link" routerLink="viewGames"  routerLinkActive="active">View Games</a>
+      </li>
+      
+  </ul>
 </div>
+
+
+  <div>
+      <router-outlet></router-outlet>
+  </div>
+

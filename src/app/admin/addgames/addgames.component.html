@@ -1,72 +1,83 @@
-<h1 class="text-center mt-5">Enter Product Details</h1>
-<div class="row mt-4">
-    <div class="col-sm-2 col-md-3"></div>
-    <div class="col-sm-8 col-md-6">
+<div class="maindiv">
 
-      <!-- Form to submit data to creating game -->
-      <form #ref="ngForm"  (ngSubmit)="onDSubmitGame(ref.value)">
+  <div class="container border border-white w-75 mt-4 mb-3">
+
+
+    <h1 class="text-center mt-2">Enter Game Details</h1>
+    <div class="row mt-4">
+        <div class="col-sm-2 col-md-1"></div>
+        <div class="col-sm-8 col-md-10">
+
+          <!-- Form to submit data to creating game -->
+          <form #ref="ngForm"  (ngSubmit)="onDSubmitGame(ref.value)">
+              
+            <div class="form-floating mb-3">
+              <input type="number" class="form-control" id="id" name="id" ngModel>
+              <label for="id">ID</label>
+            </div>
           
-        <div class="form-floating mb-3">
-          <input type="number" class="form-control" id="id" name="id" ngModel>
-          <label for="id">ID</label>
+            <div class="form-floating mb-3">
+              <input type="text" class="form-control" id="gameName" name="gameName" ngModel>
+              <label for="gameName">gameName</label>
+            </div>
+
+            <div class="form-floating mb-3">
+                <input type="text" class="form-control" id="thumbnail" name="thumbnail" ngModel>
+                <label for="thumbnail">Thumbnail</label>
+              </div>
+      
+
+            <div class="form-floating mb-3">
+                <input type="text" class="form-control" id="short_description" name="short_description" ngModel>
+                <label for="short_description">Short_Description</label>
+            </div>
+
+            <div class="form-floating mb-3">
+                <input type="text" class="form-control" id="game_url" name="game_url" ngModel>
+                <label for="game_url">Game_Url</label>
+            </div>
+
+            <div class="form-floating mb-3">
+                <input type="text" class="form-control" id="genre" name="genre" ngModel>
+                <label for="genre">Genre</label>
+            </div>
+
+            <div class="form-floating mb-3">
+                <input type="text" class="form-control" id="platform" name="platform" ngModel>
+                <label for="platform">Platform</label>
+            </div>
+
+            <div class="form-floating mb-3">
+                <input type="text" class="form-control" id="publisher" name="publisher" ngModel>
+                <label for="publisher">Publisher</label>
+            </div>
+
+            <div class="form-floating mb-3">
+                <input type="text" class="form-control" id="developer" name="developer" ngModel>
+                <label for="developer">Developer</label>
+            </div>
+
+            <div class="form-floating mb-3">
+                <input type="date" class="form-control" id="release_date" name="release_date" ngModel>
+                <label for="release_date">Realease_Date</label>
+            </div>
+
+            <div class="form-floating mb-3">
+                <input type="text" class="form-control" id="game_profile_url" name="freetogame_profile_url" ngModel>
+                <label for="game_profile_url">Game_Profile_Url</label>
+            </div>        
+
+            <!-- <input type="file" name="photo" class="form-control mt-3 mb-3" ngModel> -->
+
+            <button class="btn btn-success float-end text-white mb-2" type="submit">
+                  <i class="fas fa-plus-circle me-2"></i>Add</button>
+          </form>
         </div>
-       
-        <div class="form-floating mb-3">
-          <input type="text" class="form-control" id="gameName" name="gameName" ngModel>
-          <label for="gameName">gameName</label>
-        </div>
-
-        <div class="form-floating mb-3">
-            <input type="text" class="form-control" id="thumbnail" name="thumbnail" ngModel>
-            <label for="thumbnail">Thumbnail</label>
-          </div>
-  
-
-        <div class="form-floating mb-3">
-            <input type="text" class="form-control" id="short_description" name="short_description" ngModel>
-            <label for="short_description">Short_Description</label>
-        </div>
-
-        <div class="form-floating mb-3">
-            <input type="text" class="form-control" id="game_url" name="game_url" ngModel>
-            <label for="game_url">Game_Url</label>
-        </div>
-
-        <div class="form-floating mb-3">
-            <input type="text" class="form-control" id="genre" name="genre" ngModel>
-            <label for="genre">Genre</label>
-        </div>
-
-        <div class="form-floating mb-3">
-            <input type="text" class="form-control" id="platform" name="platform" ngModel>
-            <label for="platform">Platform</label>
-        </div>
-
-        <div class="form-floating mb-3">
-            <input type="text" class="form-control" id="publisher" name="publisher" ngModel>
-            <label for="publisher">Publisher</label>
-        </div>
-
-        <div class="form-floating mb-3">
-            <input type="text" class="form-control" id="developer" name="developer" ngModel>
-            <label for="developer">Developer</label>
-        </div>
-
-        <div class="form-floating mb-3">
-            <input type="date" class="form-control" id="release_date" name="release_date" ngModel>
-            <label for="release_date">Realease_Date</label>
-        </div>
-
-        <div class="form-floating mb-3">
-            <input type="text" class="form-control" id="game_profile_url" name="freetogame_profile_url" ngModel>
-            <label for="game_profile_url">Game_Profile_Url</label>
-        </div>        
-
-        <!-- <input type="file" name="photo" class="form-control mt-3 mb-3" ngModel> -->
-
-        <button class="btn btn-success float-end text-white" type="submit">
-              <i class="fas fa-plus-circle me-2"></i>Add</button>
-      </form>
+        <div class="col-sm-2 col-md-1"></div>
     </div>
-    <div class="col-sm-2 col-md-3"></div>
   </div>
+
+
+
+
+</div>
