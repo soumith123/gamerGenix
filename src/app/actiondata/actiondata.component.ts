@@ -10,7 +10,7 @@ import { Games } from '../models/game.model';
 })
 export class ActiondataComponent implements OnInit {
 
-  action:any;
+  action:Games;
 
   //injecting gamesService object
   constructor(private ar:ActivatedRoute, private gamesService:GamesService) {}
@@ -22,11 +22,11 @@ export class ActiondataComponent implements OnInit {
     this.gamesService.getActionGameDetails(gameName).subscribe(
       action=>
       {
-        this.action=action.message;        
+        this.action=action["message"];        
       },
       err=>
       {
-        console.log("error in getting shooting game details is", err);        
+        console.log("error in getting action game details is", err);        
       }
     )
   }

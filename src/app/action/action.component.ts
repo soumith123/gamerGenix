@@ -30,7 +30,7 @@ export class ActionComponent implements OnInit {
     this.mySubscription=this.gs.getActionGames().subscribe(
       action=>
       {
-        this.action=action.message
+        this.action=action["message"]
       },
       err=>
       {

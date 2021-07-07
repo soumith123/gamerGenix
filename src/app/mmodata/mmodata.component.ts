@@ -22,7 +22,7 @@ export class MmodataComponent implements OnInit {
     this.gamesService.getMMOGameDetails(gameName).subscribe(
       mmo=>
       {
-        this.mmo=mmo.message;        
+        this.mmo=mmo["message"];        
       },
       err=>
       {

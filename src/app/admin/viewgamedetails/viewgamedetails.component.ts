@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { Games } from 'src/app/models/game.model';
 import { AdminService } from '../admin.service';
 
 @Component({
@@ -9,7 +10,7 @@ import { AdminService } from '../admin.service';
 })
 export class ViewgamedetailsComponent implements OnInit {
 
-  all:any;
+  all:Games;
 
   constructor(private ar:ActivatedRoute, private adminService:AdminService) {}
 
@@ -20,7 +21,7 @@ export class ViewgamedetailsComponent implements OnInit {
     this.adminService.getShootingGameDetails(gameName).subscribe(
       all=>
       {
-        this.all=all.message;        
+        this.all=all["message"];        
       },
       err=>
       {

@@ -12,16 +12,16 @@ export class GamesService {
 
 
   // total games
-  getAllGames():Observable<any>
+  getAllGames():Observable<Games[]>
   {
-    return this.hc.get("/game/getgames")
+    return this.hc.get<Games[]>("/game/getgames")
   }
 
 
   // all games details
-  getGameDetails(gameName):Observable<any>
+  getGameDetails(gameName):Observable<Games>
   {
-    return this.hc.get(`game/getgame/${gameName}`)
+    return this.hc.get<Games>(`game/getgame/${gameName}`)
   }
   
 
@@ -33,168 +33,168 @@ export class GamesService {
 
 
   // shooting games
-  getShootingGames():Observable<any>
+  getShootingGames():Observable<Games[]>
   {
-    return this.hc.get("/game/getshootinggames")
+    return this.hc.get<Games[]>("/game/getshootinggames")
   }
 
 
   // shooting game details
-  getShootingGameDetails(gameName):Observable<any>
+  getShootingGameDetails(gameName):Observable<Games>
   {
-    return this.hc.get(`game/getshootinggame/${gameName}`)
+    return this.hc.get<Games>(`game/getshootinggame/${gameName}`)
   }
 
 
   // social games
-  getSocialGames():Observable<any>
+  getSocialGames():Observable<Games[]>
   {
-    return this.hc.get("/game/getsocialgames")
+    return this.hc.get<Games[]>("/game/getsocialgames")
   }
 
 
   // social game details
-  getSocialGameDetails(gameName):Observable<any>
+  getSocialGameDetails(gameName):Observable<Games>
   {
-    return this.hc.get(`game/getsocialgame/${gameName}`)
+    return this.hc.get<Games>(`game/getsocialgame/${gameName}`)
   }
 
 
   // fighting games
-  getFightingGames():Observable<any>
+  getFightingGames():Observable<Games[]>
   {
-    return this.hc.get("/game/getfightinggames")
+    return this.hc.get<Games[]>("/game/getfightinggames")
   }
 
 
   // fighting game details
-  getFightingGameDetails(gameName):Observable<any>
+  getFightingGameDetails(gameName):Observable<Games>
   {
-    return this.hc.get(`game/getfightinggame/${gameName}`)
+    return this.hc.get<Games>(`game/getfightinggame/${gameName}`)
   }
 
 
   // racing games
-  getRacingGames():Observable<any>
+  getRacingGames():Observable<Games[]>
   {
-    return this.hc.get("/game/getRacinggames")
+    return this.hc.get<Games[]>("/game/getRacinggames")
   }
 
 
   // racing game details
-  getRacingGameDetails(gameName):Observable<any>
+  getRacingGameDetails(gameName):Observable<Games>
   {
-    return this.hc.get(`game/getracinggame/${gameName}`)
+    return this.hc.get<Games>(`game/getracinggame/${gameName}`)
   }
 
 
   // sports games
-  getSportsGames():Observable<any>
+  getSportsGames():Observable<Games[]>
   {
-    return this.hc.get("/game/getSportsgames")
+    return this.hc.get<Games[]>("/game/getSportsgames")
   }
 
   // sports game details
-  getSportsGameDetails(gameName):Observable<any>
+  getSportsGameDetails(gameName):Observable<Games>
   {
-    return this.hc.get(`game/getsportsgame/${gameName}`)
+    return this.hc.get<Games>(`game/getsportsgame/${gameName}`)
   }
 
   
   // MOBA games
-  getMOBAGames():Observable<any>
+  getMOBAGames():Observable<Games[]>
   {
-    return this.hc.get("/game/getMOBAgames")
+    return this.hc.get<Games[]>("/game/getMOBAgames")
   }
 
 
   // MOBA game details
-  getMOBAGameDetails(gameName):Observable<any>
+  getMOBAGameDetails(gameName):Observable<Games>
   {
-    return this.hc.get(`game/getMOBAgame/${gameName}`)
+    return this.hc.get<Games>(`game/getMOBAgame/${gameName}`)
   }
   
 
 
   // card games
-  getCardGames():Observable<any>
+  getCardGames():Observable<Games[]>
   {
-    return this.hc.get("/game/getcardgames")
+    return this.hc.get<Games[]>("/game/getcardgames")
   }
 
 
   // card game details
-  getCardGameDetails(gameName):Observable<any>
+  getCardGameDetails(gameName):Observable<Games>
   {
-    return this.hc.get(`game/getcardgame/${gameName}`)
+    return this.hc.get<Games>(`game/getcardgame/${gameName}`)
   }
 
 
   // strategy games
-  getStrategyGames():Observable<any>
+  getStrategyGames():Observable<Games[]>
   {
-    return this.hc.get("/game/getstrategygames")
+    return this.hc.get<Games[]>("/game/getstrategygames")
   }
 
 
   // strategy game details
-  getStrategyGameDetails(gameName):Observable<any>
+  getStrategyGameDetails(gameName):Observable<Games>
   {
-    return this.hc.get(`game/getstrategygame/${gameName}`)
+    return this.hc.get<Games>(`game/getstrategygame/${gameName}`)
   }
 
   // Fantasy games
-  getFantasyGames():Observable<any>
+  getFantasyGames():Observable<Games[]>
   {
-    return this.hc.get("/game/getfantasygames")
+    return this.hc.get<Games[]>("/game/getfantasygames")
   }
 
 
   // fantasy game details
-  getFantasyGameDetails(gameName):Observable<any>
+  getFantasyGameDetails(gameName):Observable<Games>
   {
-    return this.hc.get(`game/getfantasygame/${gameName}`)
+    return this.hc.get<Games>(`game/getfantasygame/${gameName}`)
   }
 
 
   // MMO games
-  getMMOGames():Observable<any>
+  getMMOGames():Observable<Games[]>
   {
-    return this.hc.get("/game/getMMOgames")
+    return this.hc.get<Games[]>("/game/getMMOgames")
   }
 
 
   // MMO game details
-  getMMOGameDetails(gameName):Observable<any>
+  getMMOGameDetails(gameName):Observable<Games>
   {
-    return this.hc.get(`game/getmmogame/${gameName}`)
+    return this.hc.get<Games>(`game/getmmogame/${gameName}`)
   }
 
   // action games
-  getActionGames():Observable<any>
+  getActionGames():Observable<Games[]>
   {
-    return this.hc.get("/game/getActiongames")
+    return this.hc.get<Games[]>("/game/getActiongames")
   }
 
 
   // action game details
-  getActionGameDetails(gameName):Observable<any>
+  getActionGameDetails(gameName):Observable<Games>
   {
-    return this.hc.get(`game/getactiongame/${gameName}`)
+    return this.hc.get<Games>(`game/getactiongame/${gameName}`)
   }
 
 
   // mmorpg games
-  getMMORPGGames():Observable<any>
+  getMMORPGGames():Observable<Games[]>
   {
-    return this.hc.get("/game/getMMORPGgames")
+    return this.hc.get<Games[]>("/game/getMMORPGgames")
   }
 
 
   // MMORPG game details
-  getMMORPGGameDetails(gameName):Observable<any>
+  getMMORPGGameDetails(gameName):Observable<Games>
   {
-    return this.hc.get(`game/getMMORPGgame/${gameName}`)
+    return this.hc.get<Games>(`game/getMMORPGgame/${gameName}`)
   }
 
   // sending user loved games to database

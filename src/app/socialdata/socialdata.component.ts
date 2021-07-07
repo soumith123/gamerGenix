@@ -10,7 +10,7 @@ import { Games } from '../models/game.model';
 })
 export class SocialdataComponent implements OnInit {
 
-  social:any;  
+  social:Games;  
 
   constructor(private ar:ActivatedRoute, private gamesService:GamesService) {}
 
@@ -21,7 +21,7 @@ export class SocialdataComponent implements OnInit {
     this.gamesService.getSocialGameDetails(gameName).subscribe(
       social=>
       {
-        this.social=social.message;
+        this.social=social["message"];
       },
       err=>
       {

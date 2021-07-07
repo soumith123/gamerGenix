@@ -21,7 +21,7 @@ export class GamesComponent implements OnInit {
 
   p=1;
 
-  gamesObj:any[];
+  gamesObj:Games[];
 
   ngOnInit(): void 
   {

@@ -10,7 +10,7 @@ import { Games } from '../models/game.model';
 })
 export class MobadataComponent implements OnInit {
 
-  moba:any;
+  moba:Games;
 
   //injecting gamesService object
   constructor(private ar:ActivatedRoute, private gamesService:GamesService) {}
@@ -22,7 +22,7 @@ export class MobadataComponent implements OnInit {
     this.gamesService.getMOBAGameDetails(gameName).subscribe(
       moba=>
       {
-        this.moba=moba.message;        
+        this.moba=moba["message"];        
       },
       err=>
       {

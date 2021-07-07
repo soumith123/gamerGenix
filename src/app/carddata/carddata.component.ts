@@ -10,7 +10,7 @@ import { Games } from '../models/game.model';
 })
 export class CarddataComponent implements OnInit {
 
-  card:any;
+  card:Games;
 
   //injecting gamesService object
   constructor(private ar:ActivatedRoute, private gamesService:GamesService) {}
@@ -22,11 +22,11 @@ export class CarddataComponent implements OnInit {
     this.gamesService.getCardGameDetails(gameName).subscribe(
       card=>
       {
-        this.card=card.message;        
+        this.card=card["message"];        
       },
       err=>
       {
-        console.log("error in getting shooting game details is", err);        
+        console.log("error in getting carddata game details is", err);        
       }
     )
   }

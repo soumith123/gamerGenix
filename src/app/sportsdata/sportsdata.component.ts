@@ -10,7 +10,7 @@ import { Games } from '../models/game.model';
 })
 export class SportsdataComponent implements OnInit {
 
-  sports:any;
+  sports:Games;
 
   //injecting gamesService object
   constructor(private ar:ActivatedRoute, private gamesService:GamesService) {}
@@ -22,7 +22,7 @@ export class SportsdataComponent implements OnInit {
     this.gamesService.getSportsGameDetails(gameName).subscribe(
       sports=>
       {
-        this.sports=sports.message;        
+        this.sports=sports["message"];        
       },
       err=>
       {

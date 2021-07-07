@@ -10,7 +10,7 @@ import { Games } from '../models/game.model';
 })
 export class StrategydataComponent implements OnInit {
 
-  strategy:any;
+  strategy:Games;
 
   constructor(private ar:ActivatedRoute, private gamesService:GamesService) {}
 
@@ -21,7 +21,7 @@ export class StrategydataComponent implements OnInit {
     this.gamesService.getStrategyGameDetails(gameName).subscribe(
       strategy=>
       {
-        this.strategy=strategy.message;
+        this.strategy=strategy["message"];
       },
       err=>
       {

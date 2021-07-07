@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { GamesService } from '../games.service';
+import { Games } from '../models/game.model';
 
 @Component({
   selector: 'app-cartgamedetails',
@@ -9,7 +10,7 @@ import { GamesService } from '../games.service';
 })
 export class CartgamedetailsComponent implements OnInit {
 
-  cart:any;
+  cart:Games;
 
   constructor(private ar:ActivatedRoute, private gamesService:GamesService) {}
 
@@ -20,7 +21,7 @@ export class CartgamedetailsComponent implements OnInit {
     this.gamesService.getActionGameDetails(gameName).subscribe(
       cart=>
       {
-        this.cart=cart.message;        
+        this.cart=cart["message"];        
       },
       err=>
       {

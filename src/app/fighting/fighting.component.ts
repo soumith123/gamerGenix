@@ -15,7 +15,7 @@ export class FightingComponent implements OnInit {
   constructor(private gs:GamesService, private router:Router, private userService:UserService) { }
 
   // storing fighting games
-  fighting:any[]=[];
+  fighting:Games[]=[];
 
   // for pagination
   p=1;
@@ -30,7 +30,7 @@ export class FightingComponent implements OnInit {
     this.mySubscription=this.gs.getFightingGames().subscribe(
       fighting=>
       {
-        this.fighting=fighting.message
+        this.fighting=fighting["message"]
       },
       err=>
       {

@@ -30,7 +30,7 @@ export class RacingComponent implements OnInit {
     this.mySubscription=this.gs.getRacingGames().subscribe(
       racing=>
       {
-        this.racing=racing.message
+        this.racing=racing["message"]
       },
       err=>
       {

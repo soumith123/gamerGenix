@@ -15,7 +15,7 @@ export class MmorpgComponent implements OnInit {
   constructor(private gs:GamesService, private router:Router, private userService:UserService) { }
 
   // storing MMORPG games
-  mmorpg:any[]=[];
+  mmorpg:Games[]=[];
 
   // for pagination
   p=1;
@@ -30,7 +30,7 @@ export class MmorpgComponent implements OnInit {
     this.mySubscription=this.gs.getMMORPGGames().subscribe(
       mmorpg=>
       {
-        this.mmorpg=mmorpg.message
+        this.mmorpg=mmorpg["message"]
       },
       err=>
       {

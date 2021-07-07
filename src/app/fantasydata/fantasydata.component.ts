@@ -10,7 +10,7 @@ import { Games } from '../models/game.model';
 })
 export class FantasydataComponent implements OnInit {
 
-  fantasy:any;
+  fantasy:Games;
 
   //injecting gamesService object
   constructor(private ar:ActivatedRoute, private gamesService:GamesService) {}
@@ -22,7 +22,7 @@ export class FantasydataComponent implements OnInit {
     this.gamesService.getFantasyGameDetails(gameName).subscribe(
       fantasy=>
       {
-        this.fantasy=fantasy.message;        
+        this.fantasy=fantasy["message"];        
       },
       err=>
       {

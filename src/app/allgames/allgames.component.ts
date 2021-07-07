@@ -29,7 +29,7 @@ export class AllgamesComponent implements OnInit {
     this.mySubscription=this.gs.getAllGames().subscribe(
       all=>
       {
-        this.all=all.message
+        this.all=all["message"]
       },
       err=>
       {

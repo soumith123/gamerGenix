@@ -30,7 +30,7 @@ export class CardComponent implements OnInit {
     this.mySubscription=this.gs.getCardGames().subscribe(
       card=>
       {
-        this.card=card.message
+        this.card=card["message"]
       },
       err=>
       {

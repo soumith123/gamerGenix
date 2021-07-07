@@ -30,7 +30,7 @@ export class StrategyComponent implements OnInit {
     this.mySubscription=this.gs.getStrategyGames().subscribe(
       strategy=>
       {
-        this.strategy=strategy.message
+        this.strategy=strategy["message"]
       },
       err=>
       {

@@ -30,7 +30,7 @@ export class MmoComponent implements OnInit {
     this.mySubscription=this.gs.getMMOGames().subscribe(
       mmo=>
       {
-        this.mmo=mmo.message
+        this.mmo=mmo["message"]
       },
       err=>
       {

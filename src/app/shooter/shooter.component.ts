@@ -31,7 +31,7 @@ export class ShooterComponent implements OnInit {
     this.mySubscription=this.gs.getShootingGames().subscribe(
       shooting=>
       {
-        this.shooting=shooting.message
+        this.shooting=shooting["message"]
       },
       err=>
       {

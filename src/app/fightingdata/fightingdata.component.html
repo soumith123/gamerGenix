@@ -7,15 +7,15 @@
         <div class="card bg-dark" id="image">
             <div class="row">
                 <div class="col-sm-6">
-                    <img src={{fighting.thumbnail}} width="100%" height="100%" class="mb-2">
+                    <img src={{fighting?.thumbnail}} width="100%" height="100%" class="mb-2">
                 </div>
                 <div class=" offsetsm-1 col-sm-5 text-white bg-dark">
-                    <div class="card-title text-center mt-4 mb-4" id="gameTitle">{{fighting.id}}.  {{fighting.gameName}}</div>
+                    <div class="card-title text-center mt-4 mb-4" id="gameTitle">{{fighting?.id}}.  {{fighting?.gameName}}</div>
                     <hr class="text-white">
-                    <div class="card-text text-center mt-4 mb-4" id="desc">{{fighting.short_description}}</div>
+                    <div class="card-text text-center mt-4 mb-4" id="desc">{{fighting?.short_description}}</div>
                     <span class="ms-5"></span>
-                    <a href={{fighting.game_url}} class="btn btn-danger mt-3 me-4 p-2 ms-5 mb-3" id="palyButton"><i class="fas fa-play-circle me-2"></i>Play Game</a>
-                    <a href={{fighting.freetogame_profile_url}} class="btn btn-warning text-white mt-3 p-2 mb-3" id="aboutButton"><i class="fas fa-puzzle-piece me-2"></i>About Game</a>
+                    <a href={{fighting?.game_url}} class="btn btn-danger mt-3 me-4 p-2 ms-5 mb-3" id="palyButton"><i class="fas fa-play-circle me-2"></i>Play Game</a>
+                    <a href={{fighting?.freetogame_profile_url}} class="btn btn-warning text-white mt-3 p-2 mb-3" id="aboutButton"><i class="fas fa-puzzle-piece me-2"></i>About Game</a>
                 </div>
             </div>
         </div>
@@ -36,7 +36,7 @@
                         </div>
                         <div class="col-sm-6 text-white mt-3">
                             <div class="card-text" id="platform">Platform</div>
-                            <div class="card-title" id="id1">{{fighting.platform}}</div>
+                            <div class="card-title" id="id1">{{fighting?.platform}}</div>
                         </div>
                     </div>
                 </div>
@@ -51,7 +51,7 @@
                         </div>
                         <div class="col-sm-6 text-white mt-3">
                             <div class="card-text" id="genre">Genre</div>
-                            <div class="card-title" id="id2">{{fighting.genre}}</div>
+                            <div class="card-title" id="id2">{{fighting?.genre}}</div>
                         </div>
                     </div>
                 </div>
@@ -66,7 +66,7 @@
                         </div>
                         <div class="col-sm-6 text-white mt-3">
                             <div class="card-text" id="publisher">Publisher</div>
-                            <div class="card-title" id="id3">{{fighting.publisher}}</div>
+                            <div class="card-title" id="id3">{{fighting?.publisher}}</div>
                         </div>
                     </div>
                 </div>
@@ -81,7 +81,7 @@
                         </div>
                         <div class="col-sm-6 text-white mt-3">
                             <div class="card-text" id="developer">Developer</div>
-                            <div class="card-title" id="id4">{{fighting.developer}}</div>
+                            <div class="card-title" id="id4">{{fighting?.developer}}</div>
                         </div>
                     </div>
                 </div>
@@ -96,7 +96,7 @@
                         </div>
                         <div class="col-sm-6 text-white mt-3">
                             <div class="card-text" id="releaseDate">Release Date</div>
-                            <div class="card-title" id="id5">{{fighting.release_date}}</div>
+                            <div class="card-title" id="id5">{{fighting?.release_date}}</div>
                         </div>
                     </div>
                 </div>

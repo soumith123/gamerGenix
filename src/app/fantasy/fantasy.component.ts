@@ -30,7 +30,7 @@ export class FantasyComponent implements OnInit {
     this.mySubscription=this.gs.getFantasyGames().subscribe(
       fantasy=>
       {
-        this.fantasy=fantasy.message
+        this.fantasy=fantasy["message"]
       },
       err=>
       {

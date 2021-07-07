@@ -25,10 +25,13 @@ export class UserService {
       this.userLoginStatus=true;
     }
   }
+
+
   createUser(userObj):Observable<any>
   {
     return this.hc.post("/user/createUser",userObj)
   }
+  
 
   getUser(username):Observable<any>
   {

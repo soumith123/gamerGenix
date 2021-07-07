@@ -15,7 +15,7 @@ export class SocialComponent implements OnInit {
   constructor(private gs:GamesService, private router:Router, private userService:UserService) { }
 
   // storing social games
-  social:any[];
+  social:Games[];
 
   // for pagination
   p=1;
@@ -30,7 +30,7 @@ export class SocialComponent implements OnInit {
     this.mySubscription=this.gs.getSocialGames().subscribe(
       social=>
       {
-        this.social=social.message
+        this.social=social["message"]
       },
       err=>
       {

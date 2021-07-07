@@ -28,7 +28,7 @@ export class ViewgamesComponent implements OnInit {
     this.adminService.getGames().subscribe(
       games=>
       {
-        this.games=games.message;
+        this.games=games["message"];
       },
       err=>
       {

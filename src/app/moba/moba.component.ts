@@ -30,7 +30,7 @@ export class MOBAComponent implements OnInit {
     this.mySubscription=this.gs.getMOBAGames().subscribe(
       moba=>
       {
-        this.moba=moba.message
+        this.moba=moba["message"]
       },
       err=>
       {

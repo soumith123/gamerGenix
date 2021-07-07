@@ -10,7 +10,7 @@ import { Games } from '../models/game.model';
 })
 export class MmorpgdataComponent implements OnInit {
 
-  mmorpg:any;
+  mmorpg:Games;
 
   //injecting gamesService object
   constructor(private ar:ActivatedRoute, private gamesService:GamesService) {}
@@ -22,7 +22,7 @@ export class MmorpgdataComponent implements OnInit {
     this.gamesService.getMMORPGGameDetails(gameName).subscribe(
       mmorpg=>
       {
-        this.mmorpg=mmorpg.message;        
+        this.mmorpg=mmorpg["message"];        
       },
       err=>
       {
