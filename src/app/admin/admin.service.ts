@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { Games } from '../models/game.model';
 
 @Injectable({
   providedIn: 'root'
@@ -41,6 +42,11 @@ export class AdminService {
   getShootingGameDetails(gameName):Observable<any>
   {
     return this.hc.get(`game/getshootinggame/${gameName}`)
+  }
+
+  updateGame(updatedGame):Observable<any>
+  {
+    return this.hc.put("/game/updategame/"+updatedGame.id,updatedGame)
   }
 
 }

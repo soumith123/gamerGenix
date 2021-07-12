@@ -1,14 +1,6 @@
-export interface Games
+export class Games
 {
-    id:number;
-    gameName:string;
-    thumbnail:string;
-    short_description:string;
-    game_url:string;
-    genre:string;
-    platform:string;
-    publisher:string;
-    developer:string;
-    release_date:any;
-    freetogame_profile_url:string;
+    constructor(public id:string,public gameName:string,public thumbnail:string,public short_description:string,
+        public game_url:string,public genre:string,public platform:string,public publisher:string,
+        public developer:string,public release_date:any,public freetogame_profile_url:string) {}        
 }

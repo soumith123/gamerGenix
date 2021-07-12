@@ -1,30 +1,120 @@
-<div class="container w-100">
+<div class="maindiv">
 
-    <!-- Search field -->
-     <input type="text" name="title" placeholder="Search game by its name" class="form-control mt-4"
-    [(ngModel)]= "searchTerm">
+    <input type="text" name="title" placeholder="Search game by its name" class="form-control mt-4 mb-3"
+    [(ngModel)]= "searchTerm" id="searchInput">
 
-    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-2 row-cols-lg-3 row-cols-xl-3 mt-4">
-        
-        <!--pipes for pagination and search -->
-        <div class="col" *ngFor='let game of games | search:searchTerm | paginate: {itemsPerPage:9, currentPage:p}'>
-            <!-- | search:searchTerm | paginate: {itemsPerPage:9, currentPage:p} -->
-            <div class="col" >
-                <div class="card mt-3 mb-3 animate__animated animate__flipInY text-center">
-                    <img src={{game.thumbnail}} width="100%">
-                    <div class="card-body text-white bg-dark">
-                        <div class="card-title mt-3 text-center" id="gameTitle"><h4>{{game.gameName}}</h4></div>
-                        <hr class="text-white">
+    <form #ref="ngForm" (ngSubmit)="saveGame(ref.value)">
 
-                        <!-- button for click event -->
-                        <button class="btn btn-primary mt-3 mb-3" (click)="onSelectGame(game.gameName)"><i class="fas fa-info-circle me-2"></i>Game Info</button>
-                        <button class="btn btn-danger mt-3 mb-3 ms-3" (click)="onDeleteGame(game)"><i class="fas fa-trash me-2"></i>Delete</button>
-                        <!-- <button class="btn btn-warning mt-3 mb-3 text-white"><i class="fas fa-edit me-2 text-white"></i>Edit</button> -->
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+        <table class="table text-center table-striped table-bordered">
+            <thead>
+                <th class="pb-3 pt-2">GameName</th>
+                <!-- <th>Short Description</th> -->
+                <th class="pb-3">Genre</th>
+                <th class="pb-3">Platform</th>
+                <th class="pb-3">Publisher</th>
+                <th class="pb-3">Developer</th>
+                <th class="pb-3">Date</th>
+                <th class="pb-3">Picture</th>
+            </thead>
+
+            <tbody>
+                <tr *ngFor="let game of games | search:searchTerm | paginate: {itemsPerPage:10, currentPage:p}; let ind=index">
+                    <td id="gameTitle">
+                        <span *ngIf="!editGameStatus || editGameIndex!==ind">
+
+                            {{game.gameName}}
+
+                        </span>
+
+                            <input type="text" name="gameName"  [(ngModel)]="editGameObj.gameName" class="w-75"
+                                    *ngIf="editGameStatus && editGameIndex==ind">
+
+                    </td>
+                    <!-- <td>{{game.short_description}}</td> -->
+                    <td>
+                        <span *ngIf="!editGameStatus || editGameIndex!==ind">
+
+                            {{game.genre}}
+                        
+                        </span>
+
+                            <input type="text" name="genre"  [(ngModel)]="editGameObj.genre" class="w-75"
+                                    *ngIf="editGameStatus && editGameIndex==ind">
+
+                    </td>
+                    <td>
+                        <span *ngIf="!editGameStatus || editGameIndex!==ind">
+
+                            {{game.platform}}
+                        
+                        </span>
+
+                            <input type="text" name="platform"  [(ngModel)]="editGameObj.platform" class="w-75"
+                                    *ngIf="editGameStatus && editGameIndex==ind">
+
+                    </td>
+                    <td>
+                        <span *ngIf="!editGameStatus || editGameIndex!==ind">
+
+                            {{game.publisher}}
+                        
+                        </span>
+
+                            <input type="text" name="publisher"  [(ngModel)]="editGameObj.publisher" class="w-75"
+                                    *ngIf="editGameStatus && editGameIndex==ind">
+
+                    </td>
+                    <td>
+                        <span *ngIf="!editGameStatus || editGameIndex!==ind">
+
+                            {{game.developer}}
+                        
+                        </span>
+
+                            <input type="text" name="developer"  [(ngModel)]="editGameObj.developer" class="w-75"
+                                    *ngIf="editGameStatus && editGameIndex==ind">
+
+                    </td>
+                    <td>
+                        <span *ngIf="!editGameStatus || editGameIndex!==ind">
+
+                            {{game.release_date}}
+                        
+                        </span>
+
+                            <input type="text" name="release_date"  [(ngModel)]="editGameObj.release_date" class="w-75"
+                                    *ngIf="editGameStatus && editGameIndex==ind">
+
+                    </td>
+
+                    <td>
+                        <img src={{game.thumbnail}} width="60%">
+                    </td>
+
+                    <span *ngIf="!editGameStatus || editGameIndex!==ind">
+
+                        <!-- Game Info button -->
+                        <button class="btn btn-primary btn-sm bg-primary mt-2" (click)="onSelectGame(game.gameName)"><i class="fas fa-info-circle"></i></button>
+
+                        <!-- Delete button -->
+                        <button class="btn btn-light btn-sm bg-danger mt-2" (click)="onDeleteGame(game)"><i class="fas fa-trash-alt text-white"></i></button>
+
+                        <!-- Edit button -->
+                        <button class="btn btn-sm btn-success bg-success mt-2" type="submit" (click)="editGame(game,ind)"><i class="fas fa-edit text-white"></i></button> 
+                    </span>
+
+
+                    <!-- Save button -->
+                    <span *ngIf="editGameStatus && editGameIndex==ind">
+                        <button class="btn btn-sm btn-success" type="submit"><i
+                                class="fas fa-save text-white"></i></button>
+                    </span>
+                        
+                </tr>
+
+            </tbody>
+        </table>
+    </form>
 </div>
 
 <!-- pagination -->

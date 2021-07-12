@@ -19,7 +19,7 @@ export class ViewgamesComponent implements OnInit {
   searchTerm;
 
   // to store all games
-  games:Games[];
+  games:Games[]=[];
 
   // getting all the games from database by subscribing adminService
   ngOnInit(): void {
@@ -69,5 +69,38 @@ export class ViewgamesComponent implements OnInit {
   {
     this.router.navigateByUrl("/admin/gamerGenix/viewGames/"+gameName)
   }  
+
+
+
+
+  // code to edit mobile
+  editGameIndex;
+  editGameObj=new Games('','','','','','','','','','','');
+  editGameStatus:boolean=false;
+
+  editGame(gameObj,ind)
+  {
+    this.editGameIndex=ind;
+    this.editGameObj=gameObj;
+    this.editGameStatus=true;
+  }
+
+  saveGame(modifiedGameObj)
+  {
+    this.editGameStatus=false;
+    modifiedGameObj.id=this.editGameObj["id"]
+    modifiedGameObj.thumbnail=this.editGameObj["thumbnail"]
+    this.adminService.updateGame(modifiedGameObj).subscribe(
+      res=>
+      {
+        console.log(res)
+      },
+      err=>
+      {
+        console.log("error in update", err)
+      }
+    )
+  }
+
 
 }
